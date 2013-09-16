@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ArcMap小记 | 夏之日 · 博客</title>
+  <meta name="author" content="likaci">
+  
+  <meta name="description" content="ArcMap确实很强大/复杂，一时半会是学不完的。记录一下使用的一些技巧，不定期诈尸更新&hellip;
+1.工具栏可自定义，热键可自定义 
+比如绘图最常用的要素构造工具条
+
+自定义前![yaosugouzao.jpg](http://huiyi.in/wp-content/uploads/2012">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ArcMap小记"/>
+  <meta property="og:site_name" content="夏之日 · 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/rss.xml" title="夏之日 · 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">夏之日 · 博客</a></h1>
+  <h2><a href="/">夏之日，冬之夜；百岁之后，归于其居。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="http://www.xiazhiri.com">主页</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-05-20T04:04:30.000Z"><a href="/arcmap-tips.html">2012 05 20</a></time>
+      
+      
+  
+    <h1 class="title">ArcMap小记</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>ArcMap确实很强大/复杂，一时半会是学不完的。记录一下使用的一些技巧，不定期诈尸更新&hellip;</p>
+<p><strong>1.工具栏可自定义，热键可自定义 </strong></p>
+<pre><code>比如绘图最常用的要素构造工具条
+
+自定义前![yaosugouzao<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao<span class="preprocessor">.jpg</span>)自定义后(添加了删除草图、合并的按钮) ![yaosugouzao3<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao3<span class="preprocessor">.jpg</span>)
+
+方法也很简单
+
+[![yaosugouzao2<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao2<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao2<span class="preprocessor">.jpg</span>)</code></pre>
+<p><strong>2.善用Ctrl+F</strong>，ArcMap中本地搜索很好用，一些命令或者工具因为中英文翻译的问题不易找到，使用搜索能很简单的找到。</p>
+<pre><code>!<span class="link_label">[ctrlF.jpg]</span>(<span class="link_url">http://huiyi.in/wp-content/uploads/2012/05/ctrlF.jpg</span>)</code></pre>
+<p><strong>3.属性表和excel连接的几点注意 </strong></p>
+<pre><code>对于vba和python我是个门外汉，一些操作只能在excel里进行，或者一些操作在excel里进行更简单。
+
+连接表：建立连接必须有一个参考字段，没参考字段自然是连接不上的。而数据表导出为dbf之后，第一列id(<span class="class"><span class="keyword">object</span> <span class="title">id</span>或<span class="title">fid</span>)在<span class="title">excel</span>中不会显示。这时可以在导出前新建字段，然后字段计算，让其等于<span class="title">id</span>。</span>
+
+另外值得注意的是，xls文件过大时连接表会卡死，最好的办法是存储为dbf，并在连接时建立索引。</code></pre>
+<p><strong>4.批量删除小面/空隙/缝隙 </strong></p>
+<pre><code>因为这次画的图里有大量三角形(原因是和画图方法有关)，挨个合并肯定麻烦。
+
+在ArcToolBox中Eliminate工具能很方便的合并小图斑，方法很简单，在属性表中以属性选择，而后运行Eliminate即可。(找不到Eliminate? Ctrl+F!)
+
+删除缝隙也很简单，先使用拓扑把缝隙补上，之后再Eliminate
+
+[![Eliminate<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/Eliminate<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/Eliminate<span class="preprocessor">.jpg</span>)</code></pre>
+<p><strong>5.二值化 </strong></p>
+<pre><code>在使用<span class="variable">ArcScan</span>自动矢量化的时候，要先进行图片二值化，二值化的时候只能使用其中一个<span class="keyword">band</span>，然后进行分类。或者在<span class="variable">PhotoShop</span>中处理为灰度图像。</code></pre>
+<p><strong>6.只编辑一个图层 </strong></p>
+<pre><code>有时候需要参照其他图层来编辑一个图层，为了防止选择到其他图层，可以在图层上右键--选择--设为唯一可选
+
+[![selectonly<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/selectonly<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/selectonly<span class="preprocessor">.jpg</span>)</code></pre>
+<p>暂时这些，仅供新手参考。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<!--likaci js init begin-->
+<script type="text/javascript"> 
+$(document).ready(function(){
+   $("#Disqus_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#E6EFC2")
+	 $("#duoshuo_bt").css("background-color","#f5f5f5")
+     $(".ds-thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+     $("#disqus_thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+   });
+   $("#duoshuo_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#f5f5f5")
+	 $("#duoshuo_bt").css("background-color","#DFF4FF")
+     $(".ds-thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+     $("#disqus_thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+   });
+});
+</script> 
+<!--likaic js init end-->
+<!--likaci css style begin-->
+<style type="text/css">
+#Disqus_bt,#duoshuo_bt { padding: 5px 10px 5px 7px; line-height: 17px; display: block; float: left; margin: 0 0 0 9px; background-color: #f5f5f5; border: 1px solid #dedede; border-top: 1px solid #eee; border-left: 1px solid #eee; }
+#Disqus_bt{color: #336699}
+#duoshuo_bt{color: #d12f19}
+</style>
+<!--likaci css style end-->
+<section id="comment">
+  <h1 class="title" style="float:left">留言</h1>
+  <div id="duoshuo_bt" >多说</div>
+  <div id="Disqus_bt" >Disqus</div>
+  <div style="clear:both"></div>
+  <div id="disqus_thread" style="display:none">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+<!--likaci add duoshuo begin-->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiazhiri"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!--likaci add duoshuo end-->
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+<div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xiazhiri.com">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/rags/life/">life</a><small>3</small></li>
+  
+    <li><a href="/rags/ahk/">ahk</a><small>6</small></li>
+  
+    <li><a href="/rags/gis/">gis</a><small>1</small></li>
+  
+    <li><a href="/rags/Litera/">Litera</a><small>1</small></li>
+  
+    <li><a href="/rags/Pic/">Pic</a><small>1</small></li>
+  
+    <li><a href="/rags/hexo/">hexo</a><small>2</small></li>
+  
+    <li><a href="/rags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/rags/Program/">Program</a><small>1</small></li>
+  
+    <li><a href="/rags/Video/">Video</a><small>2</small></li>
+  
+    <li><a href="/rags/Music/">Music</a><small>1</small></li>
+  
+    <li><a href="/rags/totalcmd/">totalcmd</a><small>2</small></li>
+  
+    <li><a href="/rags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/rags/GIS/">GIS</a><small>1</small></li>
+  
+    <li><a href="/rags/CityEngine/">CityEngine</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">链接</h3>
+  <ul class="entry">
+	<li><a href="http://www.5169.info/" title="分享使人快乐">RUBLOG</a></li>
+	<li><a href="http://www.sinovale.com/" title="坚持以原创科技类(半导体集成电路,生物科学)财经类和业界重要资讯为主，力争给读者最好的阅读体验。">Sinovale</a></li>
+	<li><a href="http://vaman.org" title="vaman的部落格">vaman</a></li>
+	<li><a href="http://www.lingbaoboy.com/" title="麦逗的个人Blog" target="_blank">书生意气</a></li>
+	<li><a href="http://www.ithmz.com/" title="有事就做事，没事叼根烟。">从良未遂</a></li>
+	<li><a href="http://timegone.net/" target="_blank" title="沉淀下来的旧时光">TimeGone</a></li>
+	<li><a href="http://www.zhicat.com/" title="猫主席Blog | 这里有只猫，沉默却坚定。">猫主席Blog</a></li>
+	<li><a href="http://www.laoxingblog.com" title="老邢的博客 资源分享 心情博客" target="_blank">老邢的博客</a></li>
+	<li><a href="http://www.bluesoul.name" title="筱梓的博客" target="_blank">青魂</a></li>
+	<li><a href="http://www.stylefanr.org/" title="风格范儿" target="_blank">风格范儿</a></li>
+	<li><a href="http://opengg.me/" title="opengg" target="_blank">鲁夫的爱</a></li>
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">其他</h3>
+  <ul class="entry">
+	<li><a href="/rss.xml" target="_blank">Rss订阅</a></li>
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd96f32d61d27ee288ec8f8bd5c77b80f' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  &copy; 2013 likaci
+  
+  <a h>
+  &nbsp;&nbsp;<a href="/sitemap.xml">sitemap</a></li>
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'xiazhiri';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

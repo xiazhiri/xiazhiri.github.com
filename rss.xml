@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[夏之日 · 博客]]></title>
+  <subtitle><![CDATA[夏之日，冬之夜；百岁之后，归于其居。]]></subtitle>
+  <link href="http://blog.xiazhiri.com/rss.xml" rel="self"/>
+  <link href="http://blog.xiazhiri.com"/>
+  <updated>2013-09-16T02:47:41.344Z</updated>
+  <id>http://blog.xiazhiri.com/</id>
+  <author>
+    <name><![CDATA[likaci]]></name>
+  </author>
+  <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[CityEngine 2012 无法激活授权]]></title>
+    <link href="http://blog.xiazhiri.com/CityEngineAuthorError.html"/>
+    <id>http://blog.xiazhiri.com/CityEngineAuthorError.html</id>
+    <published>2013-09-14T15:23:23.000Z</published>
+    <updated>2013-09-14T16:25:59.000Z</updated>
+    <content type="html"><![CDATA[<h2>CityEngine is not authorized for use.</h2>
+<p>CityEngine is not authorized for use. Access the ArcGIS Administrator. Click on the product folder on the left (e.g. Desktop), then select the Single Use product you will be using and click the ‘Authorize Now’ button. If you have already received an authorization file from Esri, choose the third option‘I have received an authorization file from Esri and am now ready to finish the authorization process’<br><img src="/pic/CE-error.png" alt="">   </p>
+<p>简单描述下情况吧，希望别人别再走弯路。<br><strong>Win7 x64</strong> ，安装官方CityEngine_2012_1_64bit_130381、官方LicenseManager用试用Key获取了授权文件。 但启动时提示<strong>未授权</strong>。网上搜索无果，安装和谐版的LicenseManager，<strong>ArcMap使用正常</strong>，可CityEngine依旧。QQ群求助无果，联系官方技术支持。等待回复期间不死心，最后翻到了<a href="http://forums.arcgis.com/threads/72336-CITYENGINE-2012-AUTHORIZED-THEN-SAYS-IT-ISN-T?p=279831&amp;viewfull=1#post279831" target="_blank">CITYENGINE 2012 AUTHORIZED THEN SAYS IT ISN&#39;T</a></p>
+<blockquote>
+<p>Matt&#39;s right, in case of CityEngine 2012 licensing issues your best bet may be to contact Esri Tech Support.<br>… to copy and paste the <strong>esriLicense.config</strong> file to the following location: <strong>C: drive &gt; Users &gt; user_profile</strong>. …      </p>
+</blockquote>
+<p>但最后的解决方案是把<strong>esriLicense.config</strong>拷到D:\，而非c:\users\user_profile。<br>不知道和我把CityEngine装D盘有没有关系。</p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/GIS/" term="GIS"/>
+    <category scheme="http://blog.xiazhiri.com/rags/CityEngine/" term="CityEngine"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[烟雨楼台]]></title>
+    <link href="http://blog.xiazhiri.com/yylt.html"/>
+    <id>http://blog.xiazhiri.com/yylt.html</id>
+    <published>2013-05-21T13:21:21.000Z</published>
+    <updated>2013-05-21T12:43:16.000Z</updated>
+    <content type="html"><![CDATA[<p>一周多，写点什么。多图流，慎入+1。</p>
+<a id="more"></a>
+
+<p>再见了，“”森林式校园“”。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt01.jpg" alt=""></p>
+<p>南山，塔山。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt02.jpg" alt=""></p>
+<p>正式工作第一天，管线测量。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt03.jpg" alt=""></p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt032.jpg" alt=""></p>
+<p>第二天，沉降测量。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt04.jpg" alt=""></p>
+<p>路过中科院“”海带“”研究所。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt05.jpg" alt=""></p>
+<p>好久不见</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt07.jpg" alt=""></p>
+<p>壮哉我大烟台的夜景。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt08.jpg" alt=""></p>
+<p>海景。</p>
+<p><img src="http://blog.xiazhiri.com/pic/yylt09.jpg" alt=""></p>
+<p>以前以为，人在海边就是海在身边。现在才知道，什么是海在身边而不觉。</p>
+<p>希望在学校的各位同学毕设顺利。还有再次感谢各位学长前辈的指点。</p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/life/" term="life"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[毕业"旅行"]]></title>
+    <link href="http://blog.xiazhiri.com/graduate-travel.html"/>
+    <id>http://blog.xiazhiri.com/graduate-travel.html</id>
+    <published>2013-05-04T12:17:15.000Z</published>
+    <updated>2013-05-04T15:52:19.000Z</updated>
+    <content type="html"><![CDATA[<p>是旅行，也是面试。(多图慎入)<br><a id="more"></a></p>
+<h3>青岛</h3>
+<p>面试的第一家单位，<strong>鲁商地产下属的鲁商物业</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-1.jpg" alt="">   </p>
+<p>第一次面试，虽然表现不好但是自己还是很满意，因为整个过程没有磕磕绊绊。<br>面试官是工程部的经理，很精明的一个大叔，提到的大部分是电工的问题……<br>结果也是明显的，我没有成为一个物业大叔……虽然只是拿来练手的单位，出师不利的感觉还是不爽。   </p>
+<hr>
+<h3>上海</h3>
+<p>第二家单位，<strong>上海海事局 海测大队</strong>注意后面的猫有6只<br><img src="http://blog.xiazhiri.com/pic/graduate-travel-2.jpg" alt="">   </p>
+<p>算是经历过最正式的面试，面试官一共来了五个人，人事科、测量队都有。几个常规问题，一个专业问题，一道英语翻译。<br>很不幸，专业问题，没答上。英语翻译凑合了。可能计算机有加分，最后通过了。一起同去的还有某坤和黑黑的jack<br>然后是上海之旅<br><strong>外滩</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-5.jpg" alt="">   </p>
+<p><strong>外滩的牛…… </strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-6.jpg" alt="">    </p>
+<p><strong>各有各的苦</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-4.jpg" alt="">    </p>
+<p><strong>很多猫，很多猫</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-7.jpg" alt="">   </p>
+<p><strong>复兴岛的路</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-8.jpg" alt=""><br>北方还是初春的时候，上海已经夏天来到。<br>如果我有选择，我想在这个浦江上的岛安家。   </p>
+<embed src="![](http://www.xiami.com/widget/0_2081089/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>    
+
+<hr>
+<h3>烟台</h3>
+<p>两年了，故地重游，物似人非。<br>第三家<strong>岩土勘测设计院</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-9-yantai.jpg" alt=""><br>就是以前的烟台市勘察测绘院，虽然比不上青勘院，主要方向也是勘察。但是工作环境真的喜欢……旁边的烟台一浴、旁边的公园、旁边的海……二线且沿海也是适合安家的好地方。     </p>
+<p><strong>烟台山</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-9-yantai2.jpg" alt="">   </p>
+<p><strong>烟台的海</strong><br><img src="http://blog.xiazhiri.com/pic/graduate-travel-9-yantai3.jpg" alt="">   </p>
+<p>面试官中有一位计算机爱好者，希望有机会能够切磋一下。<br>至于面试结果，还在等待。<br>希望这个曾经有过特殊意义的城市能再带来些惊喜。    </p>
+<p>第四家<strong>海天地理信息</strong><br>测绘甲级资质，一个充满活力的企业。<br><img src="http://blog.xiazhiri.com/pic/graduate-travel-9-haitan.jpg" alt="">   </p>
+<p>面试很简单，通过。   </p>
+<hr>
+<h3>临沂</h3>
+<p>第五家<strong>临沂市政工程公司</strong><br>面试定于下下周。   </p>
+<hr>
+<h3>致谢</h3>
+<p>真诚地感谢各位指路的前辈。</p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/life/" term="life"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[穷完车,富玩表,苦逼玩电脑.]]></title>
+    <link href="http://blog.xiazhiri.com/kb-play-pc.html"/>
+    <id>http://blog.xiazhiri.com/kb-play-pc.html</id>
+    <published>2013-04-08T06:39:10.000Z</published>
+    <updated>2013-06-21T05:53:59.000Z</updated>
+    <content type="html"><![CDATA[<p>穷完车，富玩表，苦逼玩电脑。当然这是比较委婉的一个版本，我多年来的愿望是成为一个苦逼…    </p>
+<p><img src="http://blog.xiazhiri.com/pic/KbPlayPC1.jpg" alt=""><br><a id="more"></a><br>来个特写：<br><img src="http://blog.xiazhiri.com/pic/KbPlayPC2.jpg" alt="">   </p>
+<p>之前关注过回忆里的应该对这个显示器有印象吧？</p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/life/" term="life"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[cTotalCMD : Total Commander启动器]]></title>
+    <link href="http://blog.xiazhiri.com/tc-as-default-2.html"/>
+    <id>http://blog.xiazhiri.com/tc-as-default-2.html</id>
+    <published>2013-04-06T06:59:31.000Z</published>
+    <updated>2013-04-06T07:19:29.000Z</updated>
+    <content type="html"><![CDATA[<h2>特性</h2>
+<p>1.设置Total Commander(简称TC)为默认文件管理器。<br>2.回收站、控制面板使用系统默认文件管理器打开。<br>3.从外部打开时，防止TC重复打开标签。感谢<a href="http://blog.csdn.net/liuyukuan/article/details/8493882" target="_blank">@sunwind兄提供思路</a><br>4.从外部打开时，按住shift在右侧激活，否则左侧。   </p>
+<h2>注意</h2>
+<p>本工具仅支持win7,XP请参见<a href="http://blog.csdn.net/liuyukuan/article/details/8493882" target="_blank">@sunwind的日志</a></p>
+<h2>用法</h2>
+<p>将 <code>cTotalCMD.exe</code> <code>cTotalCMD.install.exe</code>放在TC目录中<br>运行cTotalCMD.install.exe</p>
+<h2>下载</h2>
+<p><a href="https://github.com/likaci/cToalCMD" target="_blank"><a href="https://github.com/likaci/cToalCMD">https://github.com/likaci/cToalCMD</a></a></p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/totalcmd/" term="totalcmd"/>
+    <category scheme="http://blog.xiazhiri.com/rags/ahk/" term="ahk"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Vim2Ahk Vim下的AutoHotKey IDE环境]]></title>
+    <link href="http://blog.xiazhiri.com/vim2ahk.html"/>
+    <id>http://blog.xiazhiri.com/vim2ahk.html</id>
+    <published>2013-03-18T09:28:22.000Z</published>
+    <updated>2013-03-20T03:39:42.000Z</updated>
+    <content type="html"><![CDATA[<h2>特性</h2>
+<pre><code><span class="type">F5</span> 运行
+<span class="type">F6</span> 停止
+<span class="type">F7</span> 编译
+<span class="type">F8</span> 打开taglist 等
+错误信息输出在vim窗口
+代码补全
+代码提示 *编辑模式下 <span class="type">F1</span>
+<span class="type">Alt</span>-<span class="type">F1</span> 查询光标处help.chm
+<span class="title">ahk</span> <span class="type">Snippet</span>补全
+<span class="title">ahk</span> taglist</code></pre>
+<h2>To do</h2>
+<pre><code><span class="tag">&lt;<span class="title">del</span>&gt;</span>当脚本运行时信息窗口提示Running<span class="tag">&lt;/<span class="title">del</span>&gt;</span>
+解决中文和特殊字符脚本无法运行
+同时编辑多个脚本时F5 F6混乱
+替换文件管理器为NERDTree
+运行和停止统一为F5
+代码提示做成弹出菜单的形式
+增加Debug功能</code></pre>
+<hr>
+<h2>安装</h2>
+<h3>1.建议路径是 d:\Vim\</h3>
+<pre><code>即 d:\
+    <span class="string">|-vim\</span>
+    <span class="string">|    |-vim73\</span>
+    <span class="string">|    |-vimfile\</span>
+    <span class="string">|    |-BackupDir\</span>
+    <span class="string">|    |-Dict\</span></code></pre>
+<h3>2.配置ctags</h3>
+<p>如果<strong>不</strong>使用taglist可以省略以下<br>    ctags.cnf 放到$HOME中,win7默认为 c:\Users\用户名\ ,可以在vim中 :ec $HOME  获取路径<br>    ctags.exe 放到环境变量的path中 比如c:\windows   </p>
+<h3>3编辑vimrc</h3>
+<pre><code>编辑vimrc,根据实际情况配置，路径中尽量不要使用空格和中文
+62行
+    let g:AhkSIDE_AhkChm = 'd:<span class="command">\AutoHotKeyL</span><span class="command">\AutoHotkey</span>.chm'
+63行
+    let g:AhkSIDE_AhkExe = 'd:<span class="command">\AutoHotKeyL</span><span class="command">\AutoHotkeyA</span>32.exe'
+316行
+    let Tlist_Ctags_Cmd = 'D:<span class="command">\Vim</span><span class="command">\vim</span>73<span class="command">\ctags</span>.exe'</code></pre>
+<p>  完成后即可</p>
+<h3>预设快捷键</h3>
+<pre><code><span class="title">F1</span> 编辑状态下  代码提示
+    alt-F1 查询帮助chm
+F2 隐藏显示菜单栏
+F4 跳转到错误
+F5 运行
+F6 结束运行
+F7 编译
+F8 打开taglis等
+F9 生成tags</code></pre>
+<h3>其他快捷键</h3>
+<pre><code><span class="comment">leader设置为"</span>,<span class="comment">"</span>
+<span class="string">,</span><span class="comment">c</span> <span class="comment">关闭当前窗口</span>
+<span class="string">,</span><span class="comment">o</span> <span class="comment">关闭其他窗口</span>
+<span class="string">,</span><span class="comment">b</span> <span class="comment">新建窗口</span>
+<span class="string">,</span><span class="comment">n</span> <span class="comment">下个窗口</span>
+
+<span class="comment">gc</span> <span class="comment">关闭当前tab</span>
+<span class="comment">go</span> <span class="comment">关闭其他tab</span>
+<span class="comment">gb</span> <span class="comment">新建tab</span>
+<span class="comment">gn</span> <span class="comment">下个tab</span>
+
+<span class="string">,</span><span class="comment">e</span> <span class="comment">编辑vimrc</span>
+<span class="string">,</span><span class="comment">s</span> <span class="comment">重载vimrc</span>
+<span class="string">,</span><span class="comment">ww</span> <span class="comment">保存文件</span>
+<span class="string">,</span><span class="comment">wf</span> <span class="comment">强制保存</span>
+<span class="string">,</span><span class="comment">qq</span> <span class="comment">退出/关闭窗口</span>
+<span class="string">,</span><span class="comment">qa</span> <span class="comment">退出所有</code></pre>
+<h3>再其他的快捷键见vimrc</h3>
+<hr>
+<h2>感谢</h2>
+<p>感谢<a href="http://blog.csdn.net/liuyukuan" target="_blank">Sunwind</a> 和 <a href="https://github.com/linxinhong" target="_blank">Array</a> 的指点<br>还有AhkSIDE作者<a href="http://ahk.5d6d.net/viewthread.php?tid=5462&amp;pid=33912&amp;page=1&amp;extra=#pid33912" target="_blank">Loaxs</a><br>有幸如果作者能看见一定要联系我likaci(a)qq.com<br>最主要的功能全部有AhkSIDE实现,我只是稍作修改后各个插件的堆砌，修改后的ahkside在bundle\AhkSIDE\ 中<br>还有vim作者,各位插件作者  </p>
+<h2>预览</h2>
+<p><img src="http://blog.xiazhiri.com/pic/vim2ahk.jpg" alt="">   </p>
+<h3>下载</h3>
+<p><a href="https://github.com/likaci/vim2ahk" target="_blank">vim2ahk</a></p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/vim/" term="vim"/>
+    <category scheme="http://blog.xiazhiri.com/rags/ahk/" term="ahk"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Hexo多说评论jQuery版本]]></title>
+    <link href="http://blog.xiazhiri.com/hexo-duoshuo-jQuery.html"/>
+    <id>http://blog.xiazhiri.com/hexo-duoshuo-jQuery.html</id>
+    <published>2013-02-23T17:34:17.000Z</published>
+    <updated>2013-02-23T18:03:40.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://blog.xiazhiri.com/hexo-add-duoshuo.html">上文</a>介绍了为hexo添加多说评论，用的是原生js方式，需要外挂一个js文件，十分啰嗦。<br>参考了jQuery的帮助文档，发现用jQuery更方便、简洁。<br>comment.ejs全文如下，其中<code>&lt;!--likaci xxx --&gt;</code>之间部分为添加内容，具体效果参见下方评论框。   </p>
+<pre><code>&lt;% <span class="keyword">if</span> (config.disqus_shortname &amp;&amp; page.comments){ %&gt;
+<span class="xml"><span class="comment">&lt;!--likaci js init begin--&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"> 
+$(document).ready(<span class="keyword">function</span>(){
+   $(<span class="string">"#Disqus_bt"</span>).mouseover(<span class="keyword">function</span>(){
+     $(<span class="string">"#Disqus_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#E6EFC2"</span>)
+     $(<span class="string">"#duoshuo_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f5f5f5"</span>)
+     $(<span class="string">".ds-thread"</span>).animate({ height: <span class="string">'hide'</span>, opacity: <span class="string">'hide'</span> }, <span class="string">'slow'</span>);
+     $(<span class="string">"#disqus_thread"</span>).animate({ height: <span class="string">'show'</span>, opacity: <span class="string">'show'</span> }, <span class="string">'slow'</span>);
+   });
+   $(<span class="string">"#duoshuo_bt"</span>).mouseover(<span class="keyword">function</span>(){
+     $(<span class="string">"#Disqus_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f5f5f5"</span>)
+     $(<span class="string">"#duoshuo_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#DFF4FF"</span>)
+     $(<span class="string">".ds-thread"</span>).animate({ height: <span class="string">'show'</span>, opacity: <span class="string">'show'</span> }, <span class="string">'slow'</span>);
+     $(<span class="string">"#disqus_thread"</span>).animate({ height: <span class="string">'hide'</span>, opacity: <span class="string">'hide'</span> }, <span class="string">'slow'</span>);
+   });
+});
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> 
+<span class="comment">&lt;!--likaic js init end--&gt;</span>
+<span class="comment">&lt;!--likaci css style begin--&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+<span class="id">#Disqus_bt</span>,<span class="id">#duoshuo_bt</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">10</span>px <span class="number">5</span>px <span class="number">7</span>px;</span></span> <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">17</span>px;</span></span> <span class="rule"><span class="attribute">display</span>:<span class="value"> block;</span></span> <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">9</span>px;</span></span> <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#f5f5f5</span>;</span></span> <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#dedede</span>;</span></span> <span class="rule"><span class="attribute">border-top</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule"><span class="attribute">border-left</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule">}</span></span>
+<span class="id">#Disqus_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#336699</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#d12f19</span>}</span></span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="comment">&lt;!--likaci css style end--&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">style</span>=<span class="value">"float:left"</span>&gt;</span><span class="vbscript">&lt;%= __(<span class="comment">'comment') %&gt;</span></span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"duoshuo_bt"</span> &gt;</span>多说<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"Disqus_bt"</span> &gt;</span>Disqus<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"clear:both"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span> <span class="attribute">style</span>=<span class="value">"display:none"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo begin--&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"yourshortname"</span>};
+    (<span class="keyword">function</span>() {
+        <span class="keyword">var</span> ds = document.createElement(<span class="string">'script'</span>);
+        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
+        ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
+        ds.charset = <span class="string">'UTF-8'</span>;
+        (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] 
+        || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
+    })();
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo end--&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+<span class="vbscript">&lt;% } %&gt;</span></span></code></pre>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/hexo/" term="hexo"/>
+    <category scheme="http://blog.xiazhiri.com/rags/jquery/" term="jquery"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[为hexo添加多说评论]]></title>
+    <link href="http://blog.xiazhiri.com/hexo-add-duoshuo.html"/>
+    <id>http://blog.xiazhiri.com/hexo-add-duoshuo.html</id>
+    <published>2013-02-22T15:24:27.000Z</published>
+    <updated>2013-02-23T18:04:41.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>是基于Node.js的静态博客程序，可以方便的生成静态网页托管在github pages服务上，值得一提的是作者是台湾同胞。<br><a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>是在对比安装了<em>所有</em>可以安装的静态博客引擎之后的选择，octopress pelican liquidluke……<br>各种引擎并<em>无</em>优劣之说，个个都是作者辛苦劳动的结晶，对于平台的选择完全在于个人的喜好。   </p>
+<h3>添加<em><a href="http://duoshuo.com/" target="_blank">多说</a></em>的原因</h3>
+<p>由于<a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>是静态博客引擎，所以评论只能通过js加载外部网页实现。<br><a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>原生支持Disqus，但Disqus只支持G+ twitter等登陆，不符合兲朝的大国情，所以只能自己动手加。<br>另外<a href="http://duoshuo.com/" target="_blank">多说</a>好像口碑不太好……</p>
+<h3>安装</h3>
+<p>代码的安装很简单，只需要修改   </p>
+<pre><code><span class="command">\hexo</span><span class="command">\themes</span><span class="command">\light</span><span class="command">\layout</span><span class="command">\_</span>partial<span class="command">\comment</span>.ejs</code></pre>
+<p>如果<strong>只打算</strong>使用<a href="http://duoshuo.com/" target="_blank">多说</a>，可以直接把Disqus部分删掉，加上获取的代码即可。<br>而打算同时使用Disqus和<a href="http://duoshuo.com/" target="_blank">多说</a>的同学可以参考以下代码，所有以<code>&lt;!--liakc xxxx begin end--&gt;</code>注释为添加的部分。<br>修改得不好，应该可以更模块化一下，就不提交到git上献丑了。</p>
+<pre><code>&lt;% <span class="keyword">if</span> (config.disqus_shortname &amp;&amp; page.comments){ %&gt;
+<span class="xml"><span class="comment">&lt;!--likaci tab.js init begin--&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"/js/tab.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    window.onload=<span class="keyword">function</span>(){
+         <span class="keyword">var</span> tabtype={trigger:<span class="string">'mouseover'</span>,tabCurrentClass:<span class="string">'newclass'</span>,auto:<span class="literal">false</span>,timer:<span class="number">4000</span>,delay:<span class="number">300</span> };
+         tabInit(tabtype,[<span class="string">'Disqus_bt'</span>,<span class="string">'disqus_thread'</span>],[<span class="string">'duoshuo_bt'</span>,<span class="string">'ds-thread'</span>])
+    }
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaic tab.js init end--&gt;</span>
+<span class="comment">&lt;!--likaci css style begin--&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+<span class="id">#Disqus_bt</span>,<span class="id">#duoshuo_bt</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">10</span>px <span class="number">5</span>px <span class="number">7</span>px;</span></span> <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">17</span>px;</span></span> <span class="rule"><span class="attribute">display</span>:<span class="value"> block;</span></span> <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">7</span>px <span class="number">0</span> <span class="number">0</span>;</span></span> <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#f5f5f5</span>;</span></span> <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#dedede</span>;</span></span> <span class="rule"><span class="attribute">border-top</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule"><span class="attribute">border-left</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule">}</span></span>
+<span class="id">#Disqus_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#336699</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#d12f19</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="class">.newclass</span><span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#DFF4FF</span>}</span></span></span>
+<span class="id">#Disqus_bt</span><span class="class">.newclass</span><span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#E6EFC2</span>}</span></span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="comment">&lt;!--likaci css style end--&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span><span class="vbscript">&lt;%= __(<span class="comment">'comment') %&gt;</span></span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="comment">&lt;!--likaci add button begin--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"duoshuo_bt"</span>&gt;</span>多说<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"Disqus_bt"</span> &gt;</span>Disqus<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="comment">&lt;!--liakc add button end--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo begin--&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"yourshotname"</span>};
+    (<span class="keyword">function</span>() {
+        <span class="keyword">var</span> ds = document.createElement(<span class="string">'script'</span>);
+        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
+        ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
+        ds.charset = <span class="string">'UTF-8'</span>;
+        (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] 
+        || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
+    })();
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo end--&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+<span class="vbscript">&lt;% } %&gt;</span></span></code></pre>
+<p><strong><em>注意</em></strong>,tab.js请参考<a href="http://www.jb51.net/article/22992.htm" target="_blank">脚本之家</a>，稍有基础的人就能看懂。</p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/hexo/" term="hexo"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[ArcMap触摸屏绘图辅助程序]]></title>
+    <link href="http://blog.xiazhiri.com/arcmap-touchscreen-plugin.html"/>
+    <id>http://blog.xiazhiri.com/arcmap-touchscreen-plugin.html</id>
+    <published>2013-02-19T13:23:57.000Z</published>
+    <updated>2013-02-24T13:09:44.000Z</updated>
+    <content type="html"><![CDATA[<p>这个脚本应该是写过最长的脚本了(囧，具体有多长有兴趣的可以去看下……   </p>
+<p>脚本的功能就是作为一个外挂程序，辅助ArcMap使用触摸屏进行绘图，程序的界面提供了最常用的绘图功能。不知道最新版的ArcMap有没有集成类似的功能。<br>具体的功能可以参照视频。<br><!-- More --></p>
+<embed src="http://www.tudou.com/v/5k-DTXG_eww/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed>
+
+<p>脚本托管于github，<a href="https://github.com/likaci/ArcMapTouchScreenPlugin" target="_blank">ArcMap TouchScreen Plugin</a> </p>
+<hr>
+<h2>ArcMap TouchScreen Draw Map Helper</h2>
+<p>An autohotkey script. This script compatible with ArcMap to give users a easy way to draw maps.<br>The GUI provide some buttons for shotcut operation.<br>Found script at github <a href="https://github.com/likaci/ArcMapTouchScreenPlugin" target="_blank">ArcMap TouchScreen Plugin</a>.<br>Demo operation is the video above.   </p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/ahk/" term="ahk"/>
+    <category scheme="http://blog.xiazhiri.com/rags/gis/" term="gis"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[批量修改文件夹图标]]></title>
+    <link href="http://blog.xiazhiri.com/folder-icon.html"/>
+    <id>http://blog.xiazhiri.com/folder-icon.html</id>
+    <published>2013-02-12T16:00:00.000Z</published>
+    <updated>2013-02-18T16:18:28.000Z</updated>
+    <content type="html"><![CDATA[<p>一个ahk脚本，主要功能是自动寻找文件夹下的exe或ico，并设置为默认文件夹图标。<br>测试环境是win7 x86，其他系统请自测。<br>文件已经托管在github上<a href="https://github.com/likaci/folder-icon-batch-changer" target="_blank">folder icon changer</a><br>用法很简单:直接拖拽文件夹到脚本上即可<br>”详细”的说明见readme   </p>
+<hr>
+<h2>A script to change folders icon once</h2>
+<p>An autohotkey script,the main function is change the icon of folders with the *.exe *.ico in the folder.<br>script is tested in win7 x86, please make your own test.<br>you can get the script on github <a href="https://github.com/likaci/folder-icon-batch-changer" target="_blank">folder icon changer</a><br>read the readme for more information.   </p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/ahk/" term="ahk"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[win7下设置TotalCommander为默认文件管理器]]></title>
+    <link href="http://blog.xiazhiri.com/tc-as-default.html"/>
+    <id>http://blog.xiazhiri.com/tc-as-default.html</id>
+    <published>2013-01-14T16:00:00.000Z</published>
+    <updated>2013-02-18T16:22:43.000Z</updated>
+    <content type="html"><![CDATA[<p>前几天刚看完viatc这个程序的介绍，又看到善用佳软在中科大的演讲，最后决定上了total commander(以下简称TC）这个贼船。</p>
+<h2>设置Total commander为默认文件管理器</h2>
+<p>默认情况下TC没有提供设置为默认管理器的方法，翻遍了网上的教程，都只是在xp下的设置，无非就是设置文件夹的关联方式。在注册表HKCR\Folder\shell\open\command下。</p>
+<h2>设置为默认管理器后控制面板打不开</h2>
+<p>但问题又来了，TC在win7下不支持控制面板的打开，很多子项目都无法打开。<br>在上面提到的注册表键值下，%1参数传递给目标程序。普通文件传递的就是文件的路径，而作为控制面板之类的虚拟文件传递的是::{xxx}类似的CLSID。<br>所以通过ahk对命令行参数的处理写了个启动器，算是解决了这个问题。<br>下面是ctotalcmd.ahk</p>
+<pre><code>Loop, <span class="envvar">%0%</span>  ;对每个参数执行一次：
+{
+    param := <span class="envvar">%A_Index%</span>
+<span class="flow">If</span> param <span class="flow">not</span> contains ::{,.tib
+        Run totalcmd.exe  /O /T /L="<span class="envvar">%param%</span>"
+    <span class="flow">Else</span>
+        Run Explorer.exe <span class="envvar">%param%</span>
+    p=<span class="number">1</span>
+}
+    <span class="flow">if</span> !p
+        Run totalcmd.exe  /O /T </code></pre>
+<p>与之对应的是另一个ahk小程序，安装/卸载totalcmd.ahk</p>
+<pre><code>RegRead, IsExp, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute
+If(IsExp="<span class="special">{</span>11dbb47c-a525-400b-9e80-a54615a090c0<span class="special">}</span>")<span class="special">{</span>
+    RegDelete HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, , `"<span class="comment">%A_WorkingDir%\cTOTALCMD.EXE`" `"`%1`"</span>
+    TrayTip,,cTotalCommader为默认文件管理器,2000
+    Sleep ,1500
+    <span class="special">}</span>
+Else<span class="special">{</span>
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute, <span class="special">{</span>11dbb47c-a525-400b-9e80-a54615a090c0<span class="special">}</span>
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, , `<span class="comment">%SystemRoot`%\Explorer.exe</span>
+    TrayTip,,Explorer为默认文件管理器,2000
+    Sleep ,1500
+<span class="special">}</span></code></pre>
+<p><strong>注意</strong>必须放在tc目录下使用，目前对于管理无线网络、字体管理无法打开，需要临时卸载。<br>仅限于win7，xp请参考@sunwind兄的<a href="http://blog.csdn.net/liuyukuan/article/details/8493882" target="_blank">文章</a></p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/totalcmd/" term="totalcmd"/>
+    <category scheme="http://blog.xiazhiri.com/rags/ahk/" term="ahk"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[vim编辑运行ahk]]></title>
+    <link href="http://blog.xiazhiri.com/vim-run-ahk.html"/>
+    <id>http://blog.xiazhiri.com/vim-run-ahk.html</id>
+    <published>2013-01-12T16:00:00.000Z</published>
+    <updated>2013-02-18T16:23:23.000Z</updated>
+    <content type="html"><![CDATA[<p>vim中编辑ahk自然没问题，问题是怎样<strong>让错误信息输出到/回vim窗口。</strong><br>善用佳软曾经在水木社区讨论过这个问题，可惜最后还是没有给出明确的解决方案。<a href="http://www.newsmth.net/nForum/#!article/VIM/65596" target="_blank">见此处</a></p>
+<p>网上查了查其他语言的编译运行方式，发现问题焦点在正确设置makeprg上，关于makeprg请直接 :h makeprg<br>具体vimrc配置如下，出错自动打开quickfix</p>
+<pre><code><span class="string">"自动补全的字典 配合acp插件自动补全
+autocmd BufRead,BufNewFile <span class="variable">*.</span>ahk set dictionary+=<span class="variable">$VIMvimfilesbundleautocomplpopdictahk</span>.api
+"</span>设置makeprg程序 路径中空格要转义
+autocmd BufRead,Bufnewfile <span class="variable">*.</span>ahk set makeprg=<span class="string">"D:AutoHotKeyLAutoHotkey.exe"</span> /ErrorStdOut %
+<span class="string">"f5 f7
+autocmd BufRead,Bufnewfile <span class="variable">*.</span>ahk map  :silent !"</span>D:AutoHotKeyLCompilerAhk2Exe.exe<span class="string">" /in %
+autocmd BufRead,Bufnewfile <span class="variable">*.</span>ahk map  :call MyMake()
+"</span>实现f5 make后自动打开quickfix的函数
+function! MyMake()
+       silent make
+       redraw!
+       <span class="keyword">for</span> i in getqflist()
+               <span class="keyword">if</span> i[<span class="string">'valid'</span>]
+                       cwin
+                       winc p
+                       <span class="keyword">return</span>
+               endif
+       endfor
+endfunction</code></pre>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/vim/" term="vim"/>
+    <category scheme="http://blog.xiazhiri.com/rags/ahk/" term="ahk"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[葛生]]></title>
+    <link href="http://blog.xiazhiri.com/sunofsummer.html"/>
+    <id>http://blog.xiazhiri.com/sunofsummer.html</id>
+    <published>2013-01-10T16:00:00.000Z</published>
+    <updated>2013-02-23T08:53:44.000Z</updated>
+    <content type="html"><![CDATA[<p>葛生蒙楚，蔹蔓于野。<br>予美亡此，谁与独处。   </p>
+<p>葛生蒙棘，蔹蔓于域。<br>予美亡此，谁与独息。   </p>
+<p>角枕粲兮，锦衾烂兮。<br>予美亡此，谁与独旦。   </p>
+<p>夏之日，冬之夜。<br>百岁之后，归於其居。   </p>
+<p>冬之夜，夏之日。<br>百岁之后，归於其室。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[搜索也是一种能力]]></title>
+    <link href="http://blog.xiazhiri.com/search-ability.html"/>
+    <id>http://blog.xiazhiri.com/search-ability.html</id>
+    <published>2012-05-27T10:17:00.000Z</published>
+    <updated>2013-03-25T13:23:32.000Z</updated>
+    <content type="html"><![CDATA[<p>这篇是要必须要更新的文章之一，属于在心里酝酿过很多次，但因为懒而没抬起笔。写出来也算是想表达下自己的观点，如果能影响一两个人也算值得了。</p>
+<p>相信大多数人访问最多的网站是百度或谷歌，但是很多人还是抱怨找不到东西。搜索也是一种能力，不如说是一种解决问题的能力，因为善用搜索引擎可以解决很多问题。有失偏颇的说一句&quot;甚至要比从书本上获得答案要快且好&quot;。</p>
+<p>下面就以我这两天遇到的两个小问题为例简单说下</p>
+<p>1.看见美女找出处/善用图片搜索/以图搜图</p>
+<p>以图搜图不算新鲜了，可以参考<a href="http://www.douban.com/note/100591182/" target="_blank">十个以图搜图的网站</a>，这应该算是篇老文章了。稍加补充的是，现在看来，国内大山寨<a href="http://shitu.baidu.com/" target="_blank">百度识图</a>对国内图片的检索较好，只是覆盖量有待提高。谷歌图片搜索现在已经相对完善，搜索结果比较满意。</p>
+<p>刚刚看了百度的一个创意小视频，百度知道全民问答-<a href="http://zhidao.baidu.com/s/zhidaodata1.html" target="_blank">中国人在想什么</a>。其中在3:54处看见一萌妹子，自然想得到更多参数(原谅我涉猎不够广泛，这妹子很多人认识)&hellip;</p>
+<pre><code>[![<span class="number">1</span>ask<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>ask<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>ask<span class="preprocessor">.jpg</span>) 第一反应是，搜索下面的字幕，&amp;quot<span class="comment">;小清新变流氓的最狠毒冷暴力&amp;quot;，无果。</span>
+
+然后截图，以图查图
+
+[![<span class="number">1</span>answer0<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer0<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer0<span class="preprocessor">.jpg</span>)
+
+[![<span class="number">1</span>answer1<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer1<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer1<span class="preprocessor">.jpg</span>)
+
+找到一个结果，看来有希望，图片下面写的&amp;quot<span class="comment">;瑶瑶&amp;quot;看来可能是台湾的瑶瑶&amp;hellip;</span>
+
+[![<span class="number">1</span>answer2<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer2<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer2<span class="preprocessor">.jpg</span>)</code></pre>
+<p>复制图片地址，继续以图搜图。得到了多个结果</p>
+<pre><code>[![<span class="number">1</span>answer3<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer3<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer3<span class="preprocessor">.jpg</span>)</code></pre>
+<p>最后，找到出处。 <a href="http://game.zol.com.cn/184/1848703.html" target="_blank"><a href="http://game.zol.com.cn/184/1848703.html">http://game.zol.com.cn/184/1848703.html</a></a> 确为瑶瑶无疑&hellip;</p>
+<pre><code>[![<span class="number">1</span>answer4<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer4<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer4<span class="preprocessor">.jpg</span>)</code></pre>
+<p>2.寻找特殊关键字</p>
+<p>昨晚自习完从教室跑回宿舍，就为了多点时间上网&hellip;离开网络还真不适应啊。</p>
+<pre><code>在Greader里看见米饭维谷小同学的一篇卖关子的文章。主要是介绍了一个工具，用来制作wordpress主题的，材质之多、功能之全，让这位小同学舍不得把工具的地址甚至名字公布出来&amp;hellip;只是在卖关子，感兴趣的同学可以去看看，<span class="link_label">[链接]</span>(<span class="link_url">http://www.wg369.com/archives/1892.html</span>)。
+
+<span class="link_label">[![2ask.jpg](http://huiyi.in/wp-content/uploads/2012/05/2ask.jpg)]</span>(<span class="link_url">http://huiyi.in/wp-content/uploads/2012/05/2ask.jpg</span>)</code></pre>
+<p>这次同样以图搜图，无果。</p>
+<pre><code>而以图片中的这些特殊关键词搜索 [<span class="number">107</span> exclusive wp themes <span class="number">75</span> exclusive html templates](https://www<span class="preprocessor">.google</span><span class="preprocessor">.com</span><span class="preprocessor">.hk</span>/search?q=<span class="number">107</span> exclusive wp themes <span class="number">75</span> exclusive html templates)
+
+则可以找到答案，于谷歌搜索结果第一位。当然，用百度是搜不到的&amp;hellip<span class="comment">;</span>
+
+[![<span class="number">2</span>answer1<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">2</span>answer1<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">2</span>answer1<span class="preprocessor">.jpg</span>)</code></pre>
+<p>仔细揣摩一下作者的用心，肯定能找到合适的关键词。</p>
+<p>暂时这些，时间仓促，有些x头蛇尾。仅供新手参考，高手自觉飘过吧。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[ArcMap小记]]></title>
+    <link href="http://blog.xiazhiri.com/arcmap-tips.html"/>
+    <id>http://blog.xiazhiri.com/arcmap-tips.html</id>
+    <published>2012-05-20T04:04:30.000Z</published>
+    <updated>2013-03-25T13:23:32.000Z</updated>
+    <content type="html"><![CDATA[<p>ArcMap确实很强大/复杂，一时半会是学不完的。记录一下使用的一些技巧，不定期诈尸更新&hellip;</p>
+<p><strong>1.工具栏可自定义，热键可自定义 </strong></p>
+<pre><code>比如绘图最常用的要素构造工具条
+
+自定义前![yaosugouzao<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao<span class="preprocessor">.jpg</span>)自定义后(添加了删除草图、合并的按钮) ![yaosugouzao3<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao3<span class="preprocessor">.jpg</span>)
+
+方法也很简单
+
+[![yaosugouzao2<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao2<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao2<span class="preprocessor">.jpg</span>)</code></pre>
+<p><strong>2.善用Ctrl+F</strong>，ArcMap中本地搜索很好用，一些命令或者工具因为中英文翻译的问题不易找到，使用搜索能很简单的找到。</p>
+<pre><code>!<span class="link_label">[ctrlF.jpg]</span>(<span class="link_url">http://huiyi.in/wp-content/uploads/2012/05/ctrlF.jpg</span>)</code></pre>
+<p><strong>3.属性表和excel连接的几点注意 </strong></p>
+<pre><code>对于vba和python我是个门外汉，一些操作只能在excel里进行，或者一些操作在excel里进行更简单。
+
+连接表：建立连接必须有一个参考字段，没参考字段自然是连接不上的。而数据表导出为dbf之后，第一列id(<span class="class"><span class="keyword">object</span> <span class="title">id</span>或<span class="title">fid</span>)在<span class="title">excel</span>中不会显示。这时可以在导出前新建字段，然后字段计算，让其等于<span class="title">id</span>。</span>
+
+另外值得注意的是，xls文件过大时连接表会卡死，最好的办法是存储为dbf，并在连接时建立索引。</code></pre>
+<p><strong>4.批量删除小面/空隙/缝隙 </strong></p>
+<pre><code>因为这次画的图里有大量三角形(原因是和画图方法有关)，挨个合并肯定麻烦。
+
+在ArcToolBox中Eliminate工具能很方便的合并小图斑，方法很简单，在属性表中以属性选择，而后运行Eliminate即可。(找不到Eliminate? Ctrl+F!)
+
+删除缝隙也很简单，先使用拓扑把缝隙补上，之后再Eliminate
+
+[![Eliminate<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/Eliminate<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/Eliminate<span class="preprocessor">.jpg</span>)</code></pre>
+<p><strong>5.二值化 </strong></p>
+<pre><code>在使用<span class="variable">ArcScan</span>自动矢量化的时候，要先进行图片二值化，二值化的时候只能使用其中一个<span class="keyword">band</span>，然后进行分类。或者在<span class="variable">PhotoShop</span>中处理为灰度图像。</code></pre>
+<p><strong>6.只编辑一个图层 </strong></p>
+<pre><code>有时候需要参照其他图层来编辑一个图层，为了防止选择到其他图层，可以在图层上右键--选择--设为唯一可选
+
+[![selectonly<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/selectonly<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/selectonly<span class="preprocessor">.jpg</span>)</code></pre>
+<p>暂时这些，仅供新手参考。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[《Stand By Me》 - Playing For Change]]></title>
+    <link href="http://blog.xiazhiri.com/stand-by-me.html"/>
+    <id>http://blog.xiazhiri.com/stand-by-me.html</id>
+    <published>2012-05-16T13:09:26.000Z</published>
+    <updated>2013-04-02T02:12:19.000Z</updated>
+    <content type="html"><![CDATA[<p>《Stand By Me》 - Playing For Change，最先是在豆瓣电台上听到的，有待唱片。stand by me应该算是比较经典的歌，听过好多个版本，还是觉得PFC版本的好听。</p>
+<pre><code>当然，PFC版本的也有些特殊意义。详情见下文</code></pre>
+<embed align="middle" allowfullscreen="true" allowscriptaccess="always" height="400" mode="transparent" quality="high" src="http://player.youku.com/player.php/Type/Folder/Fid/16366568/Ob/1/sid/XMTg4NDUwMjE2/v.swf" type="application/x-shockwave-flash" width="480"></embed>
+
+<a id="more"></a>
+
+<p>Playing for Change&quot; 是一个计划、基金会（Playing For Change Foundation, PFCF）。是一位录音师到世界各地，将各地的街头音乐串连起来，希望用这种方式连接起这个世界。后来，成立了这个基金会，在落后地区建立了音乐学校，希望能让这些地区的孩童有个学习的环境。</p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/Video/" term="Video"/>
+    <category scheme="http://blog.xiazhiri.com/rags/Music/" term="Music"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[使用Google Doc 批量翻译Excel]]></title>
+    <link href="http://blog.xiazhiri.com/google-trans.html"/>
+    <id>http://blog.xiazhiri.com/google-trans.html</id>
+    <published>2012-03-11T02:00:39.000Z</published>
+    <updated>2013-04-02T02:31:18.000Z</updated>
+    <content type="html"><![CDATA[<p>应该是寒假时候的事，C的一个同学需要翻译一个很大的Excel文件粗略估计近万行吧。当时她只是问怎样才能切换单元格然后打算纯手工翻译&hellip;&hellip;</p>
+<p>这种方法自然是很笨的，因为excel自带翻译函数。不过另一个比较悲催的情况，同学根本不会用excel的函数，而C的电脑又没有装Office，然后在自然想到了万能的谷歌。</p>
+<p>使用Google Doc 批量翻译Excel</p>
+<p>1.访问<a href="https://Doc.Google.com" target="_blank"><a href="https://Doc.Google.com">https://Doc.Google.com</a></a> 并上传文件(部分景德镇居民无法访问，请自行度娘解决)。</p>
+<p><a href="http://blog.xiazhiri.com/pic/GoogleDoc_Excel.png"><img src="http://blog.xiazhiri.com/pic/GoogleDoc_Excel.png" alt="GoogleDoc-Excel.png" title="GoogleDoc-Excel.png"></a></p>
+<p>2.插入函数&#39;=GoogleTranslate(A2,&quot;源语言en&quot;,&quot;目标语言zh_cn&quot;)(看来谷歌翻译还是不错的，虽然一些词翻译的还不是很恰当)</p>
+<p><a href="http://blog.xiazhiri.com/pic/fx.png"><img src="http://blog.xiazhiri.com/pic/fx.png" alt="fx.png"></a></p>
+<p><a href="http://blog.xiazhiri.com/pic/fxCotent.png"><img src="http://blog.xiazhiri.com/pic/fxCotent.png" alt="fxCotent.png"></a></p>
+<p>3.保存，下载，没了。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[每当盛夏时]]></title>
+    <link href="http://blog.xiazhiri.com/summer.html"/>
+    <id>http://blog.xiazhiri.com/summer.html</id>
+    <published>2012-03-07T12:10:07.000Z</published>
+    <updated>2013-04-02T02:11:35.000Z</updated>
+    <content type="html"><![CDATA[<p>前两天宿舍里哥们看的，微电影。C一般不会去看电影，浪费流量、浪费时间。</p>
+<p>今天很累，瘫在电脑前什么也不想做，虽然还有很多事情要做，索性看会视频吧&hellip;</p>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" height="482" width="596"><param name="quality" value="high" /><param name="movie" value="http://www.tudou.com/v/BMV5cDOCQ5U/&amp;resourceId=0_04_05_99/v.swf" /><embed height="482" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="http://www.tudou.com/v/BMV5cDOCQ5U/&amp;resourceId=0_04_05_99/v.swf" type="application/x-shockwave-flash" width="596"></embed></object>
+
+
+<p>看的时候就一直疑惑，为啥女主一会换一套衣服，最后才明白。网上吐槽最多的是女主的鼻子，呵呵。</p>
+<p>有些相同，也有不同。挥之不去的，是阴影，是回忆。而总是活在回忆里的人，是悲哀的。</p>
+<p>&rdquo;这么久了，我还是很喜欢那年的自己，那个深爱着那时的你的那个自己。虽然爱得那样畸形、那样无助&rdquo;</p>
+<p>&ldquo;只是太年轻，快乐和伤心，都像在演戏，一碰就惊天动地。&rdquo;</p>
+<p>补上背景音乐，插曲下载地址&nbsp;<a href="http://site.douban.com/widget/playlist/5182587/" target="_blank"><a href="http://site.douban.com/widget/playlist/5182587/">http://site.douban.com/widget/playlist/5182587/</a></a></p>
+<p>以下补于20120308 21:56</p>
+<p>&nbsp;</p>
+<blockquote>
+<p><a href="http://myloli.net/" target="_blank">locx</a></p>
+<p>2012/03/08 21:43 &nbsp;</p>
+<pre><code>    青春的回忆美好的根本原因,是因为人有把它想象成美好的憧憬或祈愿,现在看来可以叫做想象力.不信你试试带上几个正妹到巴厘岛六天五夜,对比一下和运动会突然放假三天,带上青梅竹马在本地乱转之间的区别.后者可以让你在被窝里偷着笑,而前者不能.</code></pre>
+<p>&nbsp;</p>
+<p>实际上缅怀过去不是因为现在过得不好,而是因为现在过得好,楼下的巴厘岛自助火锅都吃不起的人哪有心情缅怀过去,不如多加点班.苦逼的回忆是没有价值的,什么时候混好了,再到巴厘岛的正妹的枕边缅怀过去,淡淡的忧伤一把也不迟.</p>
+</blockquote>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/Video/" term="Video"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[最佳chrome绿化方案——MyChrome+GreenChrome]]></title>
+    <link href="http://blog.xiazhiri.com/my-green-chrome.html"/>
+    <id>http://blog.xiazhiri.com/my-green-chrome.html</id>
+    <published>2012-02-12T02:36:47.000Z</published>
+    <updated>2013-04-02T02:14:35.000Z</updated>
+    <content type="html"><![CDATA[<p>这几天wp后台总是提醒&quot;您的浏览器版本很低&quot;，就像M$提醒&quot;您是盗版用户受害者</p>
+<p>但是直接安装Chrome数据文件全部存储在C盘，作为轻度强迫的Geek自然是无法忍受的&hellip;网上绿化Chrome的方法一大堆，差不多有三种方法</p>
+<pre><code><span class="number">1.</span>用快捷方式指定目录<span class="function">(只能用快捷方式运行，外部调用无效)</span>
+
+<span class="number">2.</span>使用启动器启动<span class="function">(首推<span class="title">MyChrome</span>，但<span class="title">win7</span>下锁定任务栏无效)</span>
+
+<span class="number">3.</span>用<span class="filename">msimg32.dll(首推GreenChrome，但没法自动升级)</code></pre>
+<p>当然，这样确实有些吹毛求疵。下面就说下使用GreenChrome和MyChrome，DIY可自动更新，可锁定到win7任务栏的绿色Chrome</p>
+<p>首先，使用MyChrome安装好Chrome，注意用户数据文件放在 <code>Chrome\Google\Chrome\User Data</code></p>
+<p>然后，下载GreenChrome把msimg32.dll放到chrome.exe同目录，然后就没有然后了&hellip;</p>
+<p>这样就可以使用MyChrome更新版本，也可以直接运行Chrome并固定在任务栏了。</p>
+<p>MyChrome介绍请<a href="http://hi.baidu.com/jdchenjian/blog/item/23114bf153aba5c47831aa60.html" title="MyChrome" target="_blank">戳此处</a></p>
+<p>GreenChrome请<a href="http://www.shuax.com/archives/GreenChrome.html" title="GreenChrome" target="_blank">戳此处</a></p>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/Program/" term="Program"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Dear.deer]]></title>
+    <link href="http://blog.xiazhiri.com/dear-deer.html"/>
+    <id>http://blog.xiazhiri.com/dear-deer.html</id>
+    <published>2011-12-31T09:02:46.000Z</published>
+    <updated>2013-04-02T02:18:57.000Z</updated>
+    <content type="html"><![CDATA[<p>好了，2011都过去了，还怕什么？本来想写点什么的&hellip;刚好点点网推送来了垃圾邮件&hellip;与君共勉吧。</p>
+<pre><code>Dear.
+
+这一年 三百六十五个日出日落&amp;hellip<span class="comment">;&amp;hellip;</span>
+
+有人三顾幸福不成 黯然离场
+
+点点紧握梦想 一直坚定尝试不言放
+
+有人贪婪旖旎风光 停滞步伐
+
+点点心怀信仰 始终专注选择的方向
+
+每次碰撞 &amp;nbsp<span class="comment">;都锻炼我们来积攒力量</span>
+
+每次迷茫 &amp;nbsp<span class="comment">;都提示我们要冲关破障</span>
+
+每次尝试 &amp;nbsp<span class="comment">;都完整我们的蓝图梦想</span>
+
+每次成功 &amp;nbsp<span class="comment">;更坚定我们要追随信仰</span>
+
+二零一二年&amp;hellip<span class="comment">;&amp;hellip;</span>
+
+如果命运准定地球结局
+
+那就将梦想够了到结束那一刻
+
+如果末日最终没有发生
+
+那就更励志世人尽情展示人生
+
+就算世界崩塌 &amp;nbsp<span class="comment">;也能绝处逢生</span>
+
+即使遍体鳞伤 &amp;nbsp<span class="comment">;也能浴火重生</span>
+
+不管<span class="number">2012</span> 世界变成怎样
+
+让我们此时此刻 都不虚此生
+
+祝所有人
+
+新年快乐
+
+离梦想更近一点！</code></pre>
+]]></content>
+    <category scheme="http://blog.xiazhiri.com/rags/Litera/" term="Litera"/>
+  </entry>
+</feed>

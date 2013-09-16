@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo多说评论jQuery版本 | 夏之日 · 博客</title>
+  <meta name="author" content="likaci">
+  
+  <meta name="description" content="上文介绍了为hexo添加多说评论，用的是原生js方式，需要外挂一个js文件，十分啰嗦。参考了jQuery的帮助文档，发现用jQuery更方便、简洁。comment.ejs全文如下，其中&lt;!--likaci xxx --&gt;之间部分为添加内容，具体效果参见下方评论框。   
+&lt;% if">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hexo多说评论jQuery版本"/>
+  <meta property="og:site_name" content="夏之日 · 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/rss.xml" title="夏之日 · 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">夏之日 · 博客</a></h1>
+  <h2><a href="/">夏之日，冬之夜；百岁之后，归于其居。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="http://www.xiazhiri.com">主页</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-02-23T17:34:17.000Z"><a href="/hexo-duoshuo-jQuery.html">2013 02 24</a></time>
+      
+      
+  
+    <h1 class="title">Hexo多说评论jQuery版本</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://blog.xiazhiri.com/hexo-add-duoshuo.html">上文</a>介绍了为hexo添加多说评论，用的是原生js方式，需要外挂一个js文件，十分啰嗦。<br>参考了jQuery的帮助文档，发现用jQuery更方便、简洁。<br>comment.ejs全文如下，其中<code>&lt;!--likaci xxx --&gt;</code>之间部分为添加内容，具体效果参见下方评论框。   </p>
+<pre><code>&lt;% <span class="keyword">if</span> (config.disqus_shortname &amp;&amp; page.comments){ %&gt;
+<span class="xml"><span class="comment">&lt;!--likaci js init begin--&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"> 
+$(document).ready(<span class="keyword">function</span>(){
+   $(<span class="string">"#Disqus_bt"</span>).mouseover(<span class="keyword">function</span>(){
+     $(<span class="string">"#Disqus_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#E6EFC2"</span>)
+     $(<span class="string">"#duoshuo_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f5f5f5"</span>)
+     $(<span class="string">".ds-thread"</span>).animate({ height: <span class="string">'hide'</span>, opacity: <span class="string">'hide'</span> }, <span class="string">'slow'</span>);
+     $(<span class="string">"#disqus_thread"</span>).animate({ height: <span class="string">'show'</span>, opacity: <span class="string">'show'</span> }, <span class="string">'slow'</span>);
+   });
+   $(<span class="string">"#duoshuo_bt"</span>).mouseover(<span class="keyword">function</span>(){
+     $(<span class="string">"#Disqus_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f5f5f5"</span>)
+     $(<span class="string">"#duoshuo_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#DFF4FF"</span>)
+     $(<span class="string">".ds-thread"</span>).animate({ height: <span class="string">'show'</span>, opacity: <span class="string">'show'</span> }, <span class="string">'slow'</span>);
+     $(<span class="string">"#disqus_thread"</span>).animate({ height: <span class="string">'hide'</span>, opacity: <span class="string">'hide'</span> }, <span class="string">'slow'</span>);
+   });
+});
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> 
+<span class="comment">&lt;!--likaic js init end--&gt;</span>
+<span class="comment">&lt;!--likaci css style begin--&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+<span class="id">#Disqus_bt</span>,<span class="id">#duoshuo_bt</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">10</span>px <span class="number">5</span>px <span class="number">7</span>px;</span></span> <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">17</span>px;</span></span> <span class="rule"><span class="attribute">display</span>:<span class="value"> block;</span></span> <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">9</span>px;</span></span> <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#f5f5f5</span>;</span></span> <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#dedede</span>;</span></span> <span class="rule"><span class="attribute">border-top</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule"><span class="attribute">border-left</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule">}</span></span>
+<span class="id">#Disqus_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#336699</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#d12f19</span>}</span></span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="comment">&lt;!--likaci css style end--&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">style</span>=<span class="value">"float:left"</span>&gt;</span><span class="vbscript">&lt;%= __(<span class="comment">'comment') %&gt;</span></span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"duoshuo_bt"</span> &gt;</span>多说<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"Disqus_bt"</span> &gt;</span>Disqus<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"clear:both"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span> <span class="attribute">style</span>=<span class="value">"display:none"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo begin--&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"yourshortname"</span>};
+    (<span class="keyword">function</span>() {
+        <span class="keyword">var</span> ds = document.createElement(<span class="string">'script'</span>);
+        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
+        ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
+        ds.charset = <span class="string">'UTF-8'</span>;
+        (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] 
+        || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
+    })();
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo end--&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+<span class="vbscript">&lt;% } %&gt;</span></span></code></pre>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/rags/hexo/">hexo</a>, <a href="/rags/jquery/">jquery</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<!--likaci js init begin-->
+<script type="text/javascript"> 
+$(document).ready(function(){
+   $("#Disqus_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#E6EFC2")
+	 $("#duoshuo_bt").css("background-color","#f5f5f5")
+     $(".ds-thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+     $("#disqus_thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+   });
+   $("#duoshuo_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#f5f5f5")
+	 $("#duoshuo_bt").css("background-color","#DFF4FF")
+     $(".ds-thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+     $("#disqus_thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+   });
+});
+</script> 
+<!--likaic js init end-->
+<!--likaci css style begin-->
+<style type="text/css">
+#Disqus_bt,#duoshuo_bt { padding: 5px 10px 5px 7px; line-height: 17px; display: block; float: left; margin: 0 0 0 9px; background-color: #f5f5f5; border: 1px solid #dedede; border-top: 1px solid #eee; border-left: 1px solid #eee; }
+#Disqus_bt{color: #336699}
+#duoshuo_bt{color: #d12f19}
+</style>
+<!--likaci css style end-->
+<section id="comment">
+  <h1 class="title" style="float:left">留言</h1>
+  <div id="duoshuo_bt" >多说</div>
+  <div id="Disqus_bt" >Disqus</div>
+  <div style="clear:both"></div>
+  <div id="disqus_thread" style="display:none">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+<!--likaci add duoshuo begin-->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiazhiri"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!--likaci add duoshuo end-->
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+<div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xiazhiri.com">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/rags/life/">life</a><small>3</small></li>
+  
+    <li><a href="/rags/ahk/">ahk</a><small>6</small></li>
+  
+    <li><a href="/rags/gis/">gis</a><small>1</small></li>
+  
+    <li><a href="/rags/Litera/">Litera</a><small>1</small></li>
+  
+    <li><a href="/rags/Pic/">Pic</a><small>1</small></li>
+  
+    <li><a href="/rags/hexo/">hexo</a><small>2</small></li>
+  
+    <li><a href="/rags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/rags/Program/">Program</a><small>1</small></li>
+  
+    <li><a href="/rags/Video/">Video</a><small>2</small></li>
+  
+    <li><a href="/rags/Music/">Music</a><small>1</small></li>
+  
+    <li><a href="/rags/totalcmd/">totalcmd</a><small>2</small></li>
+  
+    <li><a href="/rags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/rags/GIS/">GIS</a><small>1</small></li>
+  
+    <li><a href="/rags/CityEngine/">CityEngine</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">链接</h3>
+  <ul class="entry">
+	<li><a href="http://www.5169.info/" title="分享使人快乐">RUBLOG</a></li>
+	<li><a href="http://www.sinovale.com/" title="坚持以原创科技类(半导体集成电路,生物科学)财经类和业界重要资讯为主，力争给读者最好的阅读体验。">Sinovale</a></li>
+	<li><a href="http://vaman.org" title="vaman的部落格">vaman</a></li>
+	<li><a href="http://www.lingbaoboy.com/" title="麦逗的个人Blog" target="_blank">书生意气</a></li>
+	<li><a href="http://www.ithmz.com/" title="有事就做事，没事叼根烟。">从良未遂</a></li>
+	<li><a href="http://timegone.net/" target="_blank" title="沉淀下来的旧时光">TimeGone</a></li>
+	<li><a href="http://www.zhicat.com/" title="猫主席Blog | 这里有只猫，沉默却坚定。">猫主席Blog</a></li>
+	<li><a href="http://www.laoxingblog.com" title="老邢的博客 资源分享 心情博客" target="_blank">老邢的博客</a></li>
+	<li><a href="http://www.bluesoul.name" title="筱梓的博客" target="_blank">青魂</a></li>
+	<li><a href="http://www.stylefanr.org/" title="风格范儿" target="_blank">风格范儿</a></li>
+	<li><a href="http://opengg.me/" title="opengg" target="_blank">鲁夫的爱</a></li>
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">其他</h3>
+  <ul class="entry">
+	<li><a href="/rss.xml" target="_blank">Rss订阅</a></li>
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd96f32d61d27ee288ec8f8bd5c77b80f' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  &copy; 2013 likaci
+  
+  <a h>
+  &nbsp;&nbsp;<a href="/sitemap.xml">sitemap</a></li>
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'xiazhiri';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

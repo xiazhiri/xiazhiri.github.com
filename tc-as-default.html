@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>win7下设置TotalCommander为默认文件管理器 | 夏之日 · 博客</title>
+  <meta name="author" content="likaci">
+  
+  <meta name="description" content="前几天刚看完viatc这个程序的介绍，又看到善用佳软在中科大的演讲，最后决定上了total commander(以下简称TC）这个贼船。
+设置Total commander为默认文件管理器
+默认情况下TC没有提供设置为默认管理器的方法，翻遍了网上的教程，都只是在xp下的设置，无非就是设置文件夹的关联">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="win7下设置TotalCommander为默认文件管理器"/>
+  <meta property="og:site_name" content="夏之日 · 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/rss.xml" title="夏之日 · 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">夏之日 · 博客</a></h1>
+  <h2><a href="/">夏之日，冬之夜；百岁之后，归于其居。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="http://www.xiazhiri.com">主页</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-14T16:00:00.000Z"><a href="/tc-as-default.html">2013 01 15</a></time>
+      
+      
+  
+    <h1 class="title">win7下设置TotalCommander为默认文件管理器</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>前几天刚看完viatc这个程序的介绍，又看到善用佳软在中科大的演讲，最后决定上了total commander(以下简称TC）这个贼船。</p>
+<h2>设置Total commander为默认文件管理器</h2>
+<p>默认情况下TC没有提供设置为默认管理器的方法，翻遍了网上的教程，都只是在xp下的设置，无非就是设置文件夹的关联方式。在注册表HKCR\Folder\shell\open\command下。</p>
+<h2>设置为默认管理器后控制面板打不开</h2>
+<p>但问题又来了，TC在win7下不支持控制面板的打开，很多子项目都无法打开。<br>在上面提到的注册表键值下，%1参数传递给目标程序。普通文件传递的就是文件的路径，而作为控制面板之类的虚拟文件传递的是::{xxx}类似的CLSID。<br>所以通过ahk对命令行参数的处理写了个启动器，算是解决了这个问题。<br>下面是ctotalcmd.ahk</p>
+<pre><code>Loop, <span class="envvar">%0%</span>  ;对每个参数执行一次：
+{
+    param := <span class="envvar">%A_Index%</span>
+<span class="flow">If</span> param <span class="flow">not</span> contains ::{,.tib
+        Run totalcmd.exe  /O /T /L="<span class="envvar">%param%</span>"
+    <span class="flow">Else</span>
+        Run Explorer.exe <span class="envvar">%param%</span>
+    p=<span class="number">1</span>
+}
+    <span class="flow">if</span> !p
+        Run totalcmd.exe  /O /T </code></pre>
+<p>与之对应的是另一个ahk小程序，安装/卸载totalcmd.ahk</p>
+<pre><code>RegRead, IsExp, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute
+If(IsExp="<span class="special">{</span>11dbb47c-a525-400b-9e80-a54615a090c0<span class="special">}</span>")<span class="special">{</span>
+    RegDelete HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, , `"<span class="comment">%A_WorkingDir%\cTOTALCMD.EXE`" `"`%1`"</span>
+    TrayTip,,cTotalCommader为默认文件管理器,2000
+    Sleep ,1500
+    <span class="special">}</span>
+Else<span class="special">{</span>
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute, <span class="special">{</span>11dbb47c-a525-400b-9e80-a54615a090c0<span class="special">}</span>
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, , `<span class="comment">%SystemRoot`%\Explorer.exe</span>
+    TrayTip,,Explorer为默认文件管理器,2000
+    Sleep ,1500
+<span class="special">}</span></code></pre>
+<p><strong>注意</strong>必须放在tc目录下使用，目前对于管理无线网络、字体管理无法打开，需要临时卸载。<br>仅限于win7，xp请参考@sunwind兄的<a href="http://blog.csdn.net/liuyukuan/article/details/8493882" target="_blank">文章</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/rags/totalcmd/">totalcmd</a>, <a href="/rags/ahk/">ahk</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<!--likaci js init begin-->
+<script type="text/javascript"> 
+$(document).ready(function(){
+   $("#Disqus_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#E6EFC2")
+	 $("#duoshuo_bt").css("background-color","#f5f5f5")
+     $(".ds-thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+     $("#disqus_thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+   });
+   $("#duoshuo_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#f5f5f5")
+	 $("#duoshuo_bt").css("background-color","#DFF4FF")
+     $(".ds-thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+     $("#disqus_thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+   });
+});
+</script> 
+<!--likaic js init end-->
+<!--likaci css style begin-->
+<style type="text/css">
+#Disqus_bt,#duoshuo_bt { padding: 5px 10px 5px 7px; line-height: 17px; display: block; float: left; margin: 0 0 0 9px; background-color: #f5f5f5; border: 1px solid #dedede; border-top: 1px solid #eee; border-left: 1px solid #eee; }
+#Disqus_bt{color: #336699}
+#duoshuo_bt{color: #d12f19}
+</style>
+<!--likaci css style end-->
+<section id="comment">
+  <h1 class="title" style="float:left">留言</h1>
+  <div id="duoshuo_bt" >多说</div>
+  <div id="Disqus_bt" >Disqus</div>
+  <div style="clear:both"></div>
+  <div id="disqus_thread" style="display:none">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+<!--likaci add duoshuo begin-->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiazhiri"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!--likaci add duoshuo end-->
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+<div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xiazhiri.com">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/rags/life/">life</a><small>3</small></li>
+  
+    <li><a href="/rags/ahk/">ahk</a><small>6</small></li>
+  
+    <li><a href="/rags/gis/">gis</a><small>1</small></li>
+  
+    <li><a href="/rags/Litera/">Litera</a><small>1</small></li>
+  
+    <li><a href="/rags/Pic/">Pic</a><small>1</small></li>
+  
+    <li><a href="/rags/hexo/">hexo</a><small>2</small></li>
+  
+    <li><a href="/rags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/rags/Program/">Program</a><small>1</small></li>
+  
+    <li><a href="/rags/Video/">Video</a><small>2</small></li>
+  
+    <li><a href="/rags/Music/">Music</a><small>1</small></li>
+  
+    <li><a href="/rags/totalcmd/">totalcmd</a><small>2</small></li>
+  
+    <li><a href="/rags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/rags/GIS/">GIS</a><small>1</small></li>
+  
+    <li><a href="/rags/CityEngine/">CityEngine</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">链接</h3>
+  <ul class="entry">
+	<li><a href="http://www.5169.info/" title="分享使人快乐">RUBLOG</a></li>
+	<li><a href="http://www.sinovale.com/" title="坚持以原创科技类(半导体集成电路,生物科学)财经类和业界重要资讯为主，力争给读者最好的阅读体验。">Sinovale</a></li>
+	<li><a href="http://vaman.org" title="vaman的部落格">vaman</a></li>
+	<li><a href="http://www.lingbaoboy.com/" title="麦逗的个人Blog" target="_blank">书生意气</a></li>
+	<li><a href="http://www.ithmz.com/" title="有事就做事，没事叼根烟。">从良未遂</a></li>
+	<li><a href="http://timegone.net/" target="_blank" title="沉淀下来的旧时光">TimeGone</a></li>
+	<li><a href="http://www.zhicat.com/" title="猫主席Blog | 这里有只猫，沉默却坚定。">猫主席Blog</a></li>
+	<li><a href="http://www.laoxingblog.com" title="老邢的博客 资源分享 心情博客" target="_blank">老邢的博客</a></li>
+	<li><a href="http://www.bluesoul.name" title="筱梓的博客" target="_blank">青魂</a></li>
+	<li><a href="http://www.stylefanr.org/" title="风格范儿" target="_blank">风格范儿</a></li>
+	<li><a href="http://opengg.me/" title="opengg" target="_blank">鲁夫的爱</a></li>
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">其他</h3>
+  <ul class="entry">
+	<li><a href="/rss.xml" target="_blank">Rss订阅</a></li>
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd96f32d61d27ee288ec8f8bd5c77b80f' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  &copy; 2013 likaci
+  
+  <a h>
+  &nbsp;&nbsp;<a href="/sitemap.xml">sitemap</a></li>
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'xiazhiri';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SDHC读写速度慢 和 对SDHC进行分区后保证读写速度 | 夏之日 · 博客</title>
+  <meta name="author" content="likaci">
+  
+  <meta name="description" content="C（就是本人）有一张C4的8G TF卡。可能是人品比较好，这张C4的卡最高写入速度10M左右，但有一个前提：要用专用的软件进行格式化（软件下载见文尾）
+使用系统默认格式化之后，速度奇慢。 见图 （绿色为读取速度，红色为写入速度）">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="SDHC读写速度慢 和 对SDHC进行分区后保证读写速度"/>
+  <meta property="og:site_name" content="夏之日 · 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/rss.xml" title="夏之日 · 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">夏之日 · 博客</a></h1>
+  <h2><a href="/">夏之日，冬之夜；百岁之后，归于其居。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="http://www.xiazhiri.com">主页</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-11-08T12:11:00.000Z"><a href="/sdhc-speed.html">2011 11 08</a></time>
+      
+      
+  
+    <h1 class="title">SDHC读写速度慢 和 对SDHC进行分区后保证读写速度</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>C（<em>就是本人</em>）有一张C4的8G TF卡。可能是人品比较好，这张C4的卡最高写入速度10M左右，但有一个前提：<strong>要用专用的软件进行格式化</strong><span style="FONT-SIZE: 14px"><em>（软件下载见文尾）</em></span></p>
+<p>使用<strong><span style="TEXT-DECORATION: underline">系统默认</span></strong>格式化之后，速度奇慢。 见图 （<em>绿色为读取速度，红色为写入速度</em>）</p>
+<p><img src="http://huiyi.in/wp-content/uploads/2011/11/2011/11/sysF.png" alt="图:系统默认格式化" title="系统 默认格式化"><br> <a id="more"></a> </p>
+<p>使用<strong><span style="TEXT-DECORATION: underline">专用格式化软件</span></strong>格式化之后读写<strong>速度</strong>明显<strong>提高。</strong></p>
+<p><strong>
+</strong></p>
+<p>图:专用格式化后速度测试<img src="http://ccaiai.5gbfree.com/huiyiin/PansF.png" alt="图:SDHC使用专用格式化软件格式化之后速度测试" title="SDHC使用专用格式化软件格式化之后速度测试"></p>
+<hr>
+<p>文章至此，如果你有一张SDHC卡读写速度很慢，你只是想提高读写速度，那么直接下载文尾的软件，然后把你的卡格式化一遍就可以了。<br><strong>但是，如果你想多分几个区，还想提高读写速度，请继续往下看。 
+</strong></p>
+<hr>
+<p>网上查到原因是</p>
+<blockquote>
+<p>簇大小（<span style="FONT-SIZE: 14px"><em>分配单元大小</em></span>）影响读写速度，系统默认分配簇4096B，只需要将簇大小改成32KB，就可以提升速度 </p>
+</blockquote>
+<p>但是事实证明<strong><span style="TEXT-DECORATION: underline">不是</span></strong>簇大小的原因。</p>
+<p>图：分配单元大小“簇大小”</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/xn--z4q6rn6a9y3m.png" alt="图:簇大小 分配单元" title="SDHC 读写速度快慢的分析 簇大小分配单元"></p>
+<p>修改<strong>簇大小为32KB</strong>格式化之后的读写速度</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/3.png" alt="图:DHC 修改簇大小后读写速度测试" title="SDHC 修改簇大小后读写速度测试"></p>
+<p>最后在一个手机论坛里找到了真正的原因，是<del>扇区利用率</del>的问题，想要提高SDHC卡的读写速度就需要对齐扇区为8MB。所以，想调整分区的话你还需要DiskGenius</p>
+<p>1.使用专用软件把卡格式化一遍</p>
+<p>2.使用DiskGenius调整分区参数，直接修改分区参数</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/xn--8uqw4co0atpq21esja.png" alt="图:修改分区参数" title="修改分区参数"></p>
+<p>下面一步最<strong><span style="TEXT-DECORATION: underline">关键</span></strong>，修改<strong>终止柱面</strong>，使总扇区数为8的倍数，<span style="TEXT-DECORATION: underline">其他参数不要修改</span>，我想要个6.9G的分区，所以柱面是895，分区数是14386048。<br><em>（怎样计算是8的倍数？请使用科学计算器，<strong>14386048</strong>对<strong>8<span style="TEXT-DECORATION: underline">取余</span></strong>）</em></p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/xn--2-7g7a77dh9apth25fdla.png" alt="修改分区参数2.png"></p>
+<p>因为上一步是直接修改了分区参数，所以会导致分区变小了，但是显示容量还是原先的值。所以需要，修复一下：</p>
+<p>备份分区到镜像文件</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/xn--doqv7eo0aw0n.png" alt="备份分区.png"></p>
+<p>从镜像文件还原分区：</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/xn--kbr22avir96r.png" alt="还原分区.png" title="SDHC还原分区"></p>
+<p>这样，一个分区就分好了，剩下的分区依次类推：</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/xn--ok_ed_-ui5j53rxq9k.png" alt="最终结果" title="SDHC分区慢 提高读写速度 最后结果"></p>
+<p>最后还要提到一点：读卡器对内存卡的读写速度影响还很很大的，我使用手机自带的U盘功能进行读写操作，让我大跌眼镜！速度竟然比读卡器还快！！读取速度到了27MB</p>
+<p><img src="http://ccaiai.5gbfree.com/huiyiin/zte_ok_ed.png" alt="zte手机 读写速度" title="使用手机U盘模式读写"></p>
+<hr>
+<hr>
+<p>最后，附上SDHC专用格式化软件，SDformatter3.0，<a href="http://dl.dbank.com/c0jg1xgzkb" target="_blank">下载请猛击</a></p>
+<p>原创文章，欢迎转载，转载请附上本文链接！</p>
+<p><a href="http://huiyi.in/title/sdhc-speed.html" target="_blank"><a href="http://huiyi.in/title/sdhc-speed.html">http://huiyi.in/title/sdhc-speed.html</a></a></p>
+<hr>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<!--likaci js init begin-->
+<script type="text/javascript"> 
+$(document).ready(function(){
+   $("#Disqus_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#E6EFC2")
+	 $("#duoshuo_bt").css("background-color","#f5f5f5")
+     $(".ds-thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+     $("#disqus_thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+   });
+   $("#duoshuo_bt").mouseover(function(){
+	 $("#Disqus_bt").css("background-color","#f5f5f5")
+	 $("#duoshuo_bt").css("background-color","#DFF4FF")
+     $(".ds-thread").animate({ height: 'show', opacity: 'show' }, 'slow');
+     $("#disqus_thread").animate({ height: 'hide', opacity: 'hide' }, 'slow');
+   });
+});
+</script> 
+<!--likaic js init end-->
+<!--likaci css style begin-->
+<style type="text/css">
+#Disqus_bt,#duoshuo_bt { padding: 5px 10px 5px 7px; line-height: 17px; display: block; float: left; margin: 0 0 0 9px; background-color: #f5f5f5; border: 1px solid #dedede; border-top: 1px solid #eee; border-left: 1px solid #eee; }
+#Disqus_bt{color: #336699}
+#duoshuo_bt{color: #d12f19}
+</style>
+<!--likaci css style end-->
+<section id="comment">
+  <h1 class="title" style="float:left">留言</h1>
+  <div id="duoshuo_bt" >多说</div>
+  <div id="Disqus_bt" >Disqus</div>
+  <div style="clear:both"></div>
+  <div id="disqus_thread" style="display:none">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+<!--likaci add duoshuo begin-->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiazhiri"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!--likaci add duoshuo end-->
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+<div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xiazhiri.com">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/rags/life/">life</a><small>3</small></li>
+  
+    <li><a href="/rags/ahk/">ahk</a><small>6</small></li>
+  
+    <li><a href="/rags/gis/">gis</a><small>1</small></li>
+  
+    <li><a href="/rags/Litera/">Litera</a><small>1</small></li>
+  
+    <li><a href="/rags/Pic/">Pic</a><small>1</small></li>
+  
+    <li><a href="/rags/hexo/">hexo</a><small>2</small></li>
+  
+    <li><a href="/rags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/rags/Program/">Program</a><small>1</small></li>
+  
+    <li><a href="/rags/Video/">Video</a><small>2</small></li>
+  
+    <li><a href="/rags/Music/">Music</a><small>1</small></li>
+  
+    <li><a href="/rags/totalcmd/">totalcmd</a><small>2</small></li>
+  
+    <li><a href="/rags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/rags/GIS/">GIS</a><small>1</small></li>
+  
+    <li><a href="/rags/CityEngine/">CityEngine</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">链接</h3>
+  <ul class="entry">
+	<li><a href="http://www.5169.info/" title="分享使人快乐">RUBLOG</a></li>
+	<li><a href="http://www.sinovale.com/" title="坚持以原创科技类(半导体集成电路,生物科学)财经类和业界重要资讯为主，力争给读者最好的阅读体验。">Sinovale</a></li>
+	<li><a href="http://vaman.org" title="vaman的部落格">vaman</a></li>
+	<li><a href="http://www.lingbaoboy.com/" title="麦逗的个人Blog" target="_blank">书生意气</a></li>
+	<li><a href="http://www.ithmz.com/" title="有事就做事，没事叼根烟。">从良未遂</a></li>
+	<li><a href="http://timegone.net/" target="_blank" title="沉淀下来的旧时光">TimeGone</a></li>
+	<li><a href="http://www.zhicat.com/" title="猫主席Blog | 这里有只猫，沉默却坚定。">猫主席Blog</a></li>
+	<li><a href="http://www.laoxingblog.com" title="老邢的博客 资源分享 心情博客" target="_blank">老邢的博客</a></li>
+	<li><a href="http://www.bluesoul.name" title="筱梓的博客" target="_blank">青魂</a></li>
+	<li><a href="http://www.stylefanr.org/" title="风格范儿" target="_blank">风格范儿</a></li>
+	<li><a href="http://opengg.me/" title="opengg" target="_blank">鲁夫的爱</a></li>
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">其他</h3>
+  <ul class="entry">
+	<li><a href="/rss.xml" target="_blank">Rss订阅</a></li>
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd96f32d61d27ee288ec8f8bd5c77b80f' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  &copy; 2013 likaci
+  
+  <a h>
+  &nbsp;&nbsp;<a href="/sitemap.xml">sitemap</a></li>
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'xiazhiri';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

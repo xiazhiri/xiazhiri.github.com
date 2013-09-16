@@ -1,0 +1,526 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | 夏之日 · 博客</title>
+  <meta name="author" content="likaci">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="夏之日 · 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/rss.xml" title="夏之日 · 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">夏之日 · 博客</a></h1>
+  <h2><a href="/">夏之日，冬之夜；百岁之后，归于其居。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="http://www.xiazhiri.com">主页</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-18T09:28:22.000Z"><a href="/vim2ahk.html">2013 03 18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/vim2ahk.html">Vim2Ahk Vim下的AutoHotKey IDE环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>特性</h2>
+<pre><code><span class="type">F5</span> 运行
+<span class="type">F6</span> 停止
+<span class="type">F7</span> 编译
+<span class="type">F8</span> 打开taglist 等
+错误信息输出在vim窗口
+代码补全
+代码提示 *编辑模式下 <span class="type">F1</span>
+<span class="type">Alt</span>-<span class="type">F1</span> 查询光标处help.chm
+<span class="title">ahk</span> <span class="type">Snippet</span>补全
+<span class="title">ahk</span> taglist</code></pre>
+<h2>To do</h2>
+<pre><code><span class="tag">&lt;<span class="title">del</span>&gt;</span>当脚本运行时信息窗口提示Running<span class="tag">&lt;/<span class="title">del</span>&gt;</span>
+解决中文和特殊字符脚本无法运行
+同时编辑多个脚本时F5 F6混乱
+替换文件管理器为NERDTree
+运行和停止统一为F5
+代码提示做成弹出菜单的形式
+增加Debug功能</code></pre>
+<hr>
+<h2>安装</h2>
+<h3>1.建议路径是 d:\Vim\</h3>
+<pre><code>即 d:\
+    <span class="string">|-vim\</span>
+    <span class="string">|    |-vim73\</span>
+    <span class="string">|    |-vimfile\</span>
+    <span class="string">|    |-BackupDir\</span>
+    <span class="string">|    |-Dict\</span></code></pre>
+<h3>2.配置ctags</h3>
+<p>如果<strong>不</strong>使用taglist可以省略以下<br>    ctags.cnf 放到$HOME中,win7默认为 c:\Users\用户名\ ,可以在vim中 :ec $HOME  获取路径<br>    ctags.exe 放到环境变量的path中 比如c:\windows   </p>
+<h3>3编辑vimrc</h3>
+<pre><code>编辑vimrc,根据实际情况配置，路径中尽量不要使用空格和中文
+62行
+    let g:AhkSIDE_AhkChm = 'd:<span class="command">\AutoHotKeyL</span><span class="command">\AutoHotkey</span>.chm'
+63行
+    let g:AhkSIDE_AhkExe = 'd:<span class="command">\AutoHotKeyL</span><span class="command">\AutoHotkeyA</span>32.exe'
+316行
+    let Tlist_Ctags_Cmd = 'D:<span class="command">\Vim</span><span class="command">\vim</span>73<span class="command">\ctags</span>.exe'</code></pre>
+<p>  完成后即可</p>
+<h3>预设快捷键</h3>
+<pre><code><span class="title">F1</span> 编辑状态下  代码提示
+    alt-F1 查询帮助chm
+F2 隐藏显示菜单栏
+F4 跳转到错误
+F5 运行
+F6 结束运行
+F7 编译
+F8 打开taglis等
+F9 生成tags</code></pre>
+<h3>其他快捷键</h3>
+<pre><code><span class="comment">leader设置为"</span>,<span class="comment">"</span>
+<span class="string">,</span><span class="comment">c</span> <span class="comment">关闭当前窗口</span>
+<span class="string">,</span><span class="comment">o</span> <span class="comment">关闭其他窗口</span>
+<span class="string">,</span><span class="comment">b</span> <span class="comment">新建窗口</span>
+<span class="string">,</span><span class="comment">n</span> <span class="comment">下个窗口</span>
+
+<span class="comment">gc</span> <span class="comment">关闭当前tab</span>
+<span class="comment">go</span> <span class="comment">关闭其他tab</span>
+<span class="comment">gb</span> <span class="comment">新建tab</span>
+<span class="comment">gn</span> <span class="comment">下个tab</span>
+
+<span class="string">,</span><span class="comment">e</span> <span class="comment">编辑vimrc</span>
+<span class="string">,</span><span class="comment">s</span> <span class="comment">重载vimrc</span>
+<span class="string">,</span><span class="comment">ww</span> <span class="comment">保存文件</span>
+<span class="string">,</span><span class="comment">wf</span> <span class="comment">强制保存</span>
+<span class="string">,</span><span class="comment">qq</span> <span class="comment">退出/关闭窗口</span>
+<span class="string">,</span><span class="comment">qa</span> <span class="comment">退出所有</code></pre>
+<h3>再其他的快捷键见vimrc</h3>
+<hr>
+<h2>感谢</h2>
+<p>感谢<a href="http://blog.csdn.net/liuyukuan" target="_blank">Sunwind</a> 和 <a href="https://github.com/linxinhong" target="_blank">Array</a> 的指点<br>还有AhkSIDE作者<a href="http://ahk.5d6d.net/viewthread.php?tid=5462&amp;pid=33912&amp;page=1&amp;extra=#pid33912" target="_blank">Loaxs</a><br>有幸如果作者能看见一定要联系我likaci(a)qq.com<br>最主要的功能全部有AhkSIDE实现,我只是稍作修改后各个插件的堆砌，修改后的ahkside在bundle\AhkSIDE\ 中<br>还有vim作者,各位插件作者  </p>
+<h2>预览</h2>
+<p><img src="http://blog.xiazhiri.com/pic/vim2ahk.jpg" alt="">   </p>
+<h3>下载</h3>
+<p><a href="https://github.com/likaci/vim2ahk" target="_blank">vim2ahk</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-02-23T17:34:17.000Z"><a href="/hexo-duoshuo-jQuery.html">2013 02 24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/hexo-duoshuo-jQuery.html">Hexo多说评论jQuery版本</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://blog.xiazhiri.com/hexo-add-duoshuo.html">上文</a>介绍了为hexo添加多说评论，用的是原生js方式，需要外挂一个js文件，十分啰嗦。<br>参考了jQuery的帮助文档，发现用jQuery更方便、简洁。<br>comment.ejs全文如下，其中<code>&lt;!--likaci xxx --&gt;</code>之间部分为添加内容，具体效果参见下方评论框。   </p>
+<pre><code>&lt;% <span class="keyword">if</span> (config.disqus_shortname &amp;&amp; page.comments){ %&gt;
+<span class="xml"><span class="comment">&lt;!--likaci js init begin--&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"> 
+$(document).ready(<span class="keyword">function</span>(){
+   $(<span class="string">"#Disqus_bt"</span>).mouseover(<span class="keyword">function</span>(){
+     $(<span class="string">"#Disqus_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#E6EFC2"</span>)
+     $(<span class="string">"#duoshuo_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f5f5f5"</span>)
+     $(<span class="string">".ds-thread"</span>).animate({ height: <span class="string">'hide'</span>, opacity: <span class="string">'hide'</span> }, <span class="string">'slow'</span>);
+     $(<span class="string">"#disqus_thread"</span>).animate({ height: <span class="string">'show'</span>, opacity: <span class="string">'show'</span> }, <span class="string">'slow'</span>);
+   });
+   $(<span class="string">"#duoshuo_bt"</span>).mouseover(<span class="keyword">function</span>(){
+     $(<span class="string">"#Disqus_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f5f5f5"</span>)
+     $(<span class="string">"#duoshuo_bt"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#DFF4FF"</span>)
+     $(<span class="string">".ds-thread"</span>).animate({ height: <span class="string">'show'</span>, opacity: <span class="string">'show'</span> }, <span class="string">'slow'</span>);
+     $(<span class="string">"#disqus_thread"</span>).animate({ height: <span class="string">'hide'</span>, opacity: <span class="string">'hide'</span> }, <span class="string">'slow'</span>);
+   });
+});
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> 
+<span class="comment">&lt;!--likaic js init end--&gt;</span>
+<span class="comment">&lt;!--likaci css style begin--&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+<span class="id">#Disqus_bt</span>,<span class="id">#duoshuo_bt</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">10</span>px <span class="number">5</span>px <span class="number">7</span>px;</span></span> <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">17</span>px;</span></span> <span class="rule"><span class="attribute">display</span>:<span class="value"> block;</span></span> <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">9</span>px;</span></span> <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#f5f5f5</span>;</span></span> <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#dedede</span>;</span></span> <span class="rule"><span class="attribute">border-top</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule"><span class="attribute">border-left</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule">}</span></span>
+<span class="id">#Disqus_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#336699</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#d12f19</span>}</span></span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="comment">&lt;!--likaci css style end--&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">style</span>=<span class="value">"float:left"</span>&gt;</span><span class="vbscript">&lt;%= __(<span class="comment">'comment') %&gt;</span></span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"duoshuo_bt"</span> &gt;</span>多说<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"Disqus_bt"</span> &gt;</span>Disqus<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"clear:both"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span> <span class="attribute">style</span>=<span class="value">"display:none"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo begin--&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"yourshortname"</span>};
+    (<span class="keyword">function</span>() {
+        <span class="keyword">var</span> ds = document.createElement(<span class="string">'script'</span>);
+        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
+        ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
+        ds.charset = <span class="string">'UTF-8'</span>;
+        (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] 
+        || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
+    })();
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo end--&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+<span class="vbscript">&lt;% } %&gt;</span></span></code></pre>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-02-22T15:24:27.000Z"><a href="/hexo-add-duoshuo.html">2013 02 22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/hexo-add-duoshuo.html">为hexo添加多说评论</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>是基于Node.js的静态博客程序，可以方便的生成静态网页托管在github pages服务上，值得一提的是作者是台湾同胞。<br><a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>是在对比安装了<em>所有</em>可以安装的静态博客引擎之后的选择，octopress pelican liquidluke……<br>各种引擎并<em>无</em>优劣之说，个个都是作者辛苦劳动的结晶，对于平台的选择完全在于个人的喜好。   </p>
+<h3>添加<em><a href="http://duoshuo.com/" target="_blank">多说</a></em>的原因</h3>
+<p>由于<a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>是静态博客引擎，所以评论只能通过js加载外部网页实现。<br><a href="http://zespia.tw/hexo/zh-TW/" target="_blank">hexo</a>原生支持Disqus，但Disqus只支持G+ twitter等登陆，不符合兲朝的大国情，所以只能自己动手加。<br>另外<a href="http://duoshuo.com/" target="_blank">多说</a>好像口碑不太好……</p>
+<h3>安装</h3>
+<p>代码的安装很简单，只需要修改   </p>
+<pre><code><span class="command">\hexo</span><span class="command">\themes</span><span class="command">\light</span><span class="command">\layout</span><span class="command">\_</span>partial<span class="command">\comment</span>.ejs</code></pre>
+<p>如果<strong>只打算</strong>使用<a href="http://duoshuo.com/" target="_blank">多说</a>，可以直接把Disqus部分删掉，加上获取的代码即可。<br>而打算同时使用Disqus和<a href="http://duoshuo.com/" target="_blank">多说</a>的同学可以参考以下代码，所有以<code>&lt;!--liakc xxxx begin end--&gt;</code>注释为添加的部分。<br>修改得不好，应该可以更模块化一下，就不提交到git上献丑了。</p>
+<pre><code>&lt;% <span class="keyword">if</span> (config.disqus_shortname &amp;&amp; page.comments){ %&gt;
+<span class="xml"><span class="comment">&lt;!--likaci tab.js init begin--&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"/js/tab.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    window.onload=<span class="keyword">function</span>(){
+         <span class="keyword">var</span> tabtype={trigger:<span class="string">'mouseover'</span>,tabCurrentClass:<span class="string">'newclass'</span>,auto:<span class="literal">false</span>,timer:<span class="number">4000</span>,delay:<span class="number">300</span> };
+         tabInit(tabtype,[<span class="string">'Disqus_bt'</span>,<span class="string">'disqus_thread'</span>],[<span class="string">'duoshuo_bt'</span>,<span class="string">'ds-thread'</span>])
+    }
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaic tab.js init end--&gt;</span>
+<span class="comment">&lt;!--likaci css style begin--&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+<span class="id">#Disqus_bt</span>,<span class="id">#duoshuo_bt</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">10</span>px <span class="number">5</span>px <span class="number">7</span>px;</span></span> <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">17</span>px;</span></span> <span class="rule"><span class="attribute">display</span>:<span class="value"> block;</span></span> <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">7</span>px <span class="number">0</span> <span class="number">0</span>;</span></span> <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#f5f5f5</span>;</span></span> <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#dedede</span>;</span></span> <span class="rule"><span class="attribute">border-top</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule"><span class="attribute">border-left</span>:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#eee</span>;</span></span> <span class="rule">}</span></span>
+<span class="id">#Disqus_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#336699</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="rules">{<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#d12f19</span>}</span></span></span>
+<span class="id">#duoshuo_bt</span><span class="class">.newclass</span><span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#DFF4FF</span>}</span></span></span>
+<span class="id">#Disqus_bt</span><span class="class">.newclass</span><span class="rules">{<span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#E6EFC2</span>}</span></span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="comment">&lt;!--likaci css style end--&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span><span class="vbscript">&lt;%= __(<span class="comment">'comment') %&gt;</span></span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="comment">&lt;!--likaci add button begin--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"duoshuo_bt"</span>&gt;</span>多说<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"Disqus_bt"</span> &gt;</span>Disqus<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="comment">&lt;!--liakc add button end--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo begin--&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"yourshotname"</span>};
+    (<span class="keyword">function</span>() {
+        <span class="keyword">var</span> ds = document.createElement(<span class="string">'script'</span>);
+        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
+        ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
+        ds.charset = <span class="string">'UTF-8'</span>;
+        (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] 
+        || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
+    })();
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!--likaci add duoshuo end--&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+<span class="vbscript">&lt;% } %&gt;</span></span></code></pre>
+<p><strong><em>注意</em></strong>,tab.js请参考<a href="http://www.jb51.net/article/22992.htm" target="_blank">脚本之家</a>，稍有基础的人就能看懂。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-02-19T13:23:57.000Z"><a href="/arcmap-touchscreen-plugin.html">2013 02 19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/arcmap-touchscreen-plugin.html">ArcMap触摸屏绘图辅助程序</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这个脚本应该是写过最长的脚本了(囧，具体有多长有兴趣的可以去看下……   </p>
+<p>脚本的功能就是作为一个外挂程序，辅助ArcMap使用触摸屏进行绘图，程序的界面提供了最常用的绘图功能。不知道最新版的ArcMap有没有集成类似的功能。<br>具体的功能可以参照视频。<br><!-- More --></p>
+<embed src="http://www.tudou.com/v/5k-DTXG_eww/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed>
+
+<p>脚本托管于github，<a href="https://github.com/likaci/ArcMapTouchScreenPlugin" target="_blank">ArcMap TouchScreen Plugin</a> </p>
+<hr>
+<h2>ArcMap TouchScreen Draw Map Helper</h2>
+<p>An autohotkey script. This script compatible with ArcMap to give users a easy way to draw maps.<br>The GUI provide some buttons for shotcut operation.<br>Found script at github <a href="https://github.com/likaci/ArcMapTouchScreenPlugin" target="_blank">ArcMap TouchScreen Plugin</a>.<br>Demo operation is the video above.   </p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-02-12T16:00:00.000Z"><a href="/folder-icon.html">2013 02 13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/folder-icon.html">批量修改文件夹图标</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>一个ahk脚本，主要功能是自动寻找文件夹下的exe或ico，并设置为默认文件夹图标。<br>测试环境是win7 x86，其他系统请自测。<br>文件已经托管在github上<a href="https://github.com/likaci/folder-icon-batch-changer" target="_blank">folder icon changer</a><br>用法很简单:直接拖拽文件夹到脚本上即可<br>”详细”的说明见readme   </p>
+<hr>
+<h2>A script to change folders icon once</h2>
+<p>An autohotkey script,the main function is change the icon of folders with the *.exe *.ico in the folder.<br>script is tested in win7 x86, please make your own test.<br>you can get the script on github <a href="https://github.com/likaci/folder-icon-batch-changer" target="_blank">folder icon changer</a><br>read the readme for more information.   </p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+<div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xiazhiri.com">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/rags/life/">life</a><small>3</small></li>
+  
+    <li><a href="/rags/ahk/">ahk</a><small>6</small></li>
+  
+    <li><a href="/rags/gis/">gis</a><small>1</small></li>
+  
+    <li><a href="/rags/Litera/">Litera</a><small>1</small></li>
+  
+    <li><a href="/rags/Pic/">Pic</a><small>1</small></li>
+  
+    <li><a href="/rags/hexo/">hexo</a><small>2</small></li>
+  
+    <li><a href="/rags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/rags/Program/">Program</a><small>1</small></li>
+  
+    <li><a href="/rags/Video/">Video</a><small>2</small></li>
+  
+    <li><a href="/rags/Music/">Music</a><small>1</small></li>
+  
+    <li><a href="/rags/totalcmd/">totalcmd</a><small>2</small></li>
+  
+    <li><a href="/rags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/rags/GIS/">GIS</a><small>1</small></li>
+  
+    <li><a href="/rags/CityEngine/">CityEngine</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">链接</h3>
+  <ul class="entry">
+	<li><a href="http://www.5169.info/" title="分享使人快乐">RUBLOG</a></li>
+	<li><a href="http://www.sinovale.com/" title="坚持以原创科技类(半导体集成电路,生物科学)财经类和业界重要资讯为主，力争给读者最好的阅读体验。">Sinovale</a></li>
+	<li><a href="http://vaman.org" title="vaman的部落格">vaman</a></li>
+	<li><a href="http://www.lingbaoboy.com/" title="麦逗的个人Blog" target="_blank">书生意气</a></li>
+	<li><a href="http://www.ithmz.com/" title="有事就做事，没事叼根烟。">从良未遂</a></li>
+	<li><a href="http://timegone.net/" target="_blank" title="沉淀下来的旧时光">TimeGone</a></li>
+	<li><a href="http://www.zhicat.com/" title="猫主席Blog | 这里有只猫，沉默却坚定。">猫主席Blog</a></li>
+	<li><a href="http://www.laoxingblog.com" title="老邢的博客 资源分享 心情博客" target="_blank">老邢的博客</a></li>
+	<li><a href="http://www.bluesoul.name" title="筱梓的博客" target="_blank">青魂</a></li>
+	<li><a href="http://www.stylefanr.org/" title="风格范儿" target="_blank">风格范儿</a></li>
+	<li><a href="http://opengg.me/" title="opengg" target="_blank">鲁夫的爱</a></li>
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">其他</h3>
+  <ul class="entry">
+	<li><a href="/rss.xml" target="_blank">Rss订阅</a></li>
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd96f32d61d27ee288ec8f8bd5c77b80f' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  &copy; 2013 likaci
+  
+  <a h>
+  &nbsp;&nbsp;<a href="/sitemap.xml">sitemap</a></li>
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'xiazhiri';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

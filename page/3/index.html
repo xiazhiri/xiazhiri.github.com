@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 页 | 夏之日 · 博客</title>
+  <meta name="author" content="likaci">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="夏之日 · 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/rss.xml" title="夏之日 · 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">夏之日 · 博客</a></h1>
+  <h2><a href="/">夏之日，冬之夜；百岁之后，归于其居。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="http://www.xiazhiri.com">主页</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-14T16:00:00.000Z"><a href="/tc-as-default.html">2013 01 15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/tc-as-default.html">win7下设置TotalCommander为默认文件管理器</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>前几天刚看完viatc这个程序的介绍，又看到善用佳软在中科大的演讲，最后决定上了total commander(以下简称TC）这个贼船。</p>
+<h2>设置Total commander为默认文件管理器</h2>
+<p>默认情况下TC没有提供设置为默认管理器的方法，翻遍了网上的教程，都只是在xp下的设置，无非就是设置文件夹的关联方式。在注册表HKCR\Folder\shell\open\command下。</p>
+<h2>设置为默认管理器后控制面板打不开</h2>
+<p>但问题又来了，TC在win7下不支持控制面板的打开，很多子项目都无法打开。<br>在上面提到的注册表键值下，%1参数传递给目标程序。普通文件传递的就是文件的路径，而作为控制面板之类的虚拟文件传递的是::{xxx}类似的CLSID。<br>所以通过ahk对命令行参数的处理写了个启动器，算是解决了这个问题。<br>下面是ctotalcmd.ahk</p>
+<pre><code>Loop, <span class="envvar">%0%</span>  ;对每个参数执行一次：
+{
+    param := <span class="envvar">%A_Index%</span>
+<span class="flow">If</span> param <span class="flow">not</span> contains ::{,.tib
+        Run totalcmd.exe  /O /T /L="<span class="envvar">%param%</span>"
+    <span class="flow">Else</span>
+        Run Explorer.exe <span class="envvar">%param%</span>
+    p=<span class="number">1</span>
+}
+    <span class="flow">if</span> !p
+        Run totalcmd.exe  /O /T </code></pre>
+<p>与之对应的是另一个ahk小程序，安装/卸载totalcmd.ahk</p>
+<pre><code>RegRead, IsExp, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute
+If(IsExp="<span class="special">{</span>11dbb47c-a525-400b-9e80-a54615a090c0<span class="special">}</span>")<span class="special">{</span>
+    RegDelete HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, , `"<span class="comment">%A_WorkingDir%\cTOTALCMD.EXE`" `"`%1`"</span>
+    TrayTip,,cTotalCommader为默认文件管理器,2000
+    Sleep ,1500
+    <span class="special">}</span>
+Else<span class="special">{</span>
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, DelegateExecute, <span class="special">{</span>11dbb47c-a525-400b-9e80-a54615a090c0<span class="special">}</span>
+    RegWrite, REG_EXPAND_SZ, HKEY_LOCAL_MACHINE, SOFTWARE<span class="command">\Classes</span><span class="command">\Folder</span><span class="command">\shell</span><span class="command">\open</span><span class="command">\command</span>, , `<span class="comment">%SystemRoot`%\Explorer.exe</span>
+    TrayTip,,Explorer为默认文件管理器,2000
+    Sleep ,1500
+<span class="special">}</span></code></pre>
+<p><strong>注意</strong>必须放在tc目录下使用，目前对于管理无线网络、字体管理无法打开，需要临时卸载。<br>仅限于win7，xp请参考@sunwind兄的<a href="http://blog.csdn.net/liuyukuan/article/details/8493882" target="_blank">文章</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-12T16:00:00.000Z"><a href="/vim-run-ahk.html">2013 01 13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/vim-run-ahk.html">vim编辑运行ahk</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>vim中编辑ahk自然没问题，问题是怎样<strong>让错误信息输出到/回vim窗口。</strong><br>善用佳软曾经在水木社区讨论过这个问题，可惜最后还是没有给出明确的解决方案。<a href="http://www.newsmth.net/nForum/#!article/VIM/65596" target="_blank">见此处</a></p>
+<p>网上查了查其他语言的编译运行方式，发现问题焦点在正确设置makeprg上，关于makeprg请直接 :h makeprg<br>具体vimrc配置如下，出错自动打开quickfix</p>
+<pre><code><span class="string">"自动补全的字典 配合acp插件自动补全
+autocmd BufRead,BufNewFile <span class="variable">*.</span>ahk set dictionary+=<span class="variable">$VIMvimfilesbundleautocomplpopdictahk</span>.api
+"</span>设置makeprg程序 路径中空格要转义
+autocmd BufRead,Bufnewfile <span class="variable">*.</span>ahk set makeprg=<span class="string">"D:AutoHotKeyLAutoHotkey.exe"</span> /ErrorStdOut %
+<span class="string">"f5 f7
+autocmd BufRead,Bufnewfile <span class="variable">*.</span>ahk map  :silent !"</span>D:AutoHotKeyLCompilerAhk2Exe.exe<span class="string">" /in %
+autocmd BufRead,Bufnewfile <span class="variable">*.</span>ahk map  :call MyMake()
+"</span>实现f5 make后自动打开quickfix的函数
+function! MyMake()
+       silent make
+       redraw!
+       <span class="keyword">for</span> i in getqflist()
+               <span class="keyword">if</span> i[<span class="string">'valid'</span>]
+                       cwin
+                       winc p
+                       <span class="keyword">return</span>
+               endif
+       endfor
+endfunction</code></pre>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-10T16:00:00.000Z"><a href="/sunofsummer.html">2013 01 11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/sunofsummer.html">葛生</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>葛生蒙楚，蔹蔓于野。<br>予美亡此，谁与独处。   </p>
+<p>葛生蒙棘，蔹蔓于域。<br>予美亡此，谁与独息。   </p>
+<p>角枕粲兮，锦衾烂兮。<br>予美亡此，谁与独旦。   </p>
+<p>夏之日，冬之夜。<br>百岁之后，归於其居。   </p>
+<p>冬之夜，夏之日。<br>百岁之后，归於其室。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-05-27T10:17:00.000Z"><a href="/search-ability.html">2012 05 27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/search-ability.html">搜索也是一种能力</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这篇是要必须要更新的文章之一，属于在心里酝酿过很多次，但因为懒而没抬起笔。写出来也算是想表达下自己的观点，如果能影响一两个人也算值得了。</p>
+<p>相信大多数人访问最多的网站是百度或谷歌，但是很多人还是抱怨找不到东西。搜索也是一种能力，不如说是一种解决问题的能力，因为善用搜索引擎可以解决很多问题。有失偏颇的说一句&quot;甚至要比从书本上获得答案要快且好&quot;。</p>
+<p>下面就以我这两天遇到的两个小问题为例简单说下</p>
+<p>1.看见美女找出处/善用图片搜索/以图搜图</p>
+<p>以图搜图不算新鲜了，可以参考<a href="http://www.douban.com/note/100591182/" target="_blank">十个以图搜图的网站</a>，这应该算是篇老文章了。稍加补充的是，现在看来，国内大山寨<a href="http://shitu.baidu.com/" target="_blank">百度识图</a>对国内图片的检索较好，只是覆盖量有待提高。谷歌图片搜索现在已经相对完善，搜索结果比较满意。</p>
+<p>刚刚看了百度的一个创意小视频，百度知道全民问答-<a href="http://zhidao.baidu.com/s/zhidaodata1.html" target="_blank">中国人在想什么</a>。其中在3:54处看见一萌妹子，自然想得到更多参数(原谅我涉猎不够广泛，这妹子很多人认识)&hellip;</p>
+<pre><code>[![<span class="number">1</span>ask<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>ask<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>ask<span class="preprocessor">.jpg</span>) 第一反应是，搜索下面的字幕，&amp;quot<span class="comment">;小清新变流氓的最狠毒冷暴力&amp;quot;，无果。</span>
+
+然后截图，以图查图
+
+[![<span class="number">1</span>answer0<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer0<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer0<span class="preprocessor">.jpg</span>)
+
+[![<span class="number">1</span>answer1<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer1<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer1<span class="preprocessor">.jpg</span>)
+
+找到一个结果，看来有希望，图片下面写的&amp;quot<span class="comment">;瑶瑶&amp;quot;看来可能是台湾的瑶瑶&amp;hellip;</span>
+
+[![<span class="number">1</span>answer2<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer2<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer2<span class="preprocessor">.jpg</span>)</code></pre>
+<p>复制图片地址，继续以图搜图。得到了多个结果</p>
+<pre><code>[![<span class="number">1</span>answer3<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer3<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer3<span class="preprocessor">.jpg</span>)</code></pre>
+<p>最后，找到出处。 <a href="http://game.zol.com.cn/184/1848703.html" target="_blank"><a href="http://game.zol.com.cn/184/1848703.html">http://game.zol.com.cn/184/1848703.html</a></a> 确为瑶瑶无疑&hellip;</p>
+<pre><code>[![<span class="number">1</span>answer4<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer4<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">1</span>answer4<span class="preprocessor">.jpg</span>)</code></pre>
+<p>2.寻找特殊关键字</p>
+<p>昨晚自习完从教室跑回宿舍，就为了多点时间上网&hellip;离开网络还真不适应啊。</p>
+<pre><code>在Greader里看见米饭维谷小同学的一篇卖关子的文章。主要是介绍了一个工具，用来制作wordpress主题的，材质之多、功能之全，让这位小同学舍不得把工具的地址甚至名字公布出来&amp;hellip;只是在卖关子，感兴趣的同学可以去看看，<span class="link_label">[链接]</span>(<span class="link_url">http://www.wg369.com/archives/1892.html</span>)。
+
+<span class="link_label">[![2ask.jpg](http://huiyi.in/wp-content/uploads/2012/05/2ask.jpg)]</span>(<span class="link_url">http://huiyi.in/wp-content/uploads/2012/05/2ask.jpg</span>)</code></pre>
+<p>这次同样以图搜图，无果。</p>
+<pre><code>而以图片中的这些特殊关键词搜索 [<span class="number">107</span> exclusive wp themes <span class="number">75</span> exclusive html templates](https://www<span class="preprocessor">.google</span><span class="preprocessor">.com</span><span class="preprocessor">.hk</span>/search?q=<span class="number">107</span> exclusive wp themes <span class="number">75</span> exclusive html templates)
+
+则可以找到答案，于谷歌搜索结果第一位。当然，用百度是搜不到的&amp;hellip<span class="comment">;</span>
+
+[![<span class="number">2</span>answer1<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">2</span>answer1<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/<span class="number">2</span>answer1<span class="preprocessor">.jpg</span>)</code></pre>
+<p>仔细揣摩一下作者的用心，肯定能找到合适的关键词。</p>
+<p>暂时这些，时间仓促，有些x头蛇尾。仅供新手参考，高手自觉飘过吧。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2012-05-20T04:04:30.000Z"><a href="/arcmap-tips.html">2012 05 20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/arcmap-tips.html">ArcMap小记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>ArcMap确实很强大/复杂，一时半会是学不完的。记录一下使用的一些技巧，不定期诈尸更新&hellip;</p>
+<p><strong>1.工具栏可自定义，热键可自定义 </strong></p>
+<pre><code>比如绘图最常用的要素构造工具条
+
+自定义前![yaosugouzao<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao<span class="preprocessor">.jpg</span>)自定义后(添加了删除草图、合并的按钮) ![yaosugouzao3<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao3<span class="preprocessor">.jpg</span>)
+
+方法也很简单
+
+[![yaosugouzao2<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao2<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/yaosugouzao2<span class="preprocessor">.jpg</span>)</code></pre>
+<p><strong>2.善用Ctrl+F</strong>，ArcMap中本地搜索很好用，一些命令或者工具因为中英文翻译的问题不易找到，使用搜索能很简单的找到。</p>
+<pre><code>!<span class="link_label">[ctrlF.jpg]</span>(<span class="link_url">http://huiyi.in/wp-content/uploads/2012/05/ctrlF.jpg</span>)</code></pre>
+<p><strong>3.属性表和excel连接的几点注意 </strong></p>
+<pre><code>对于vba和python我是个门外汉，一些操作只能在excel里进行，或者一些操作在excel里进行更简单。
+
+连接表：建立连接必须有一个参考字段，没参考字段自然是连接不上的。而数据表导出为dbf之后，第一列id(<span class="class"><span class="keyword">object</span> <span class="title">id</span>或<span class="title">fid</span>)在<span class="title">excel</span>中不会显示。这时可以在导出前新建字段，然后字段计算，让其等于<span class="title">id</span>。</span>
+
+另外值得注意的是，xls文件过大时连接表会卡死，最好的办法是存储为dbf，并在连接时建立索引。</code></pre>
+<p><strong>4.批量删除小面/空隙/缝隙 </strong></p>
+<pre><code>因为这次画的图里有大量三角形(原因是和画图方法有关)，挨个合并肯定麻烦。
+
+在ArcToolBox中Eliminate工具能很方便的合并小图斑，方法很简单，在属性表中以属性选择，而后运行Eliminate即可。(找不到Eliminate? Ctrl+F!)
+
+删除缝隙也很简单，先使用拓扑把缝隙补上，之后再Eliminate
+
+[![Eliminate<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/Eliminate<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/Eliminate<span class="preprocessor">.jpg</span>)</code></pre>
+<p><strong>5.二值化 </strong></p>
+<pre><code>在使用<span class="variable">ArcScan</span>自动矢量化的时候，要先进行图片二值化，二值化的时候只能使用其中一个<span class="keyword">band</span>，然后进行分类。或者在<span class="variable">PhotoShop</span>中处理为灰度图像。</code></pre>
+<p><strong>6.只编辑一个图层 </strong></p>
+<pre><code>有时候需要参照其他图层来编辑一个图层，为了防止选择到其他图层，可以在图层上右键--选择--设为唯一可选
+
+[![selectonly<span class="preprocessor">.jpg</span>](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/selectonly<span class="preprocessor">.jpg</span>)](http://huiyi<span class="preprocessor">.in</span>/wp-content/uploads/<span class="number">2012</span>/<span class="number">05</span>/selectonly<span class="preprocessor">.jpg</span>)</code></pre>
+<p>暂时这些，仅供新手参考。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/2/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/page/4/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+<div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xiazhiri.com">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/rags/life/">life</a><small>3</small></li>
+  
+    <li><a href="/rags/ahk/">ahk</a><small>6</small></li>
+  
+    <li><a href="/rags/gis/">gis</a><small>1</small></li>
+  
+    <li><a href="/rags/Litera/">Litera</a><small>1</small></li>
+  
+    <li><a href="/rags/Pic/">Pic</a><small>1</small></li>
+  
+    <li><a href="/rags/hexo/">hexo</a><small>2</small></li>
+  
+    <li><a href="/rags/jquery/">jquery</a><small>1</small></li>
+  
+    <li><a href="/rags/Program/">Program</a><small>1</small></li>
+  
+    <li><a href="/rags/Video/">Video</a><small>2</small></li>
+  
+    <li><a href="/rags/Music/">Music</a><small>1</small></li>
+  
+    <li><a href="/rags/totalcmd/">totalcmd</a><small>2</small></li>
+  
+    <li><a href="/rags/vim/">vim</a><small>2</small></li>
+  
+    <li><a href="/rags/GIS/">GIS</a><small>1</small></li>
+  
+    <li><a href="/rags/CityEngine/">CityEngine</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">链接</h3>
+  <ul class="entry">
+	<li><a href="http://www.5169.info/" title="分享使人快乐">RUBLOG</a></li>
+	<li><a href="http://www.sinovale.com/" title="坚持以原创科技类(半导体集成电路,生物科学)财经类和业界重要资讯为主，力争给读者最好的阅读体验。">Sinovale</a></li>
+	<li><a href="http://vaman.org" title="vaman的部落格">vaman</a></li>
+	<li><a href="http://www.lingbaoboy.com/" title="麦逗的个人Blog" target="_blank">书生意气</a></li>
+	<li><a href="http://www.ithmz.com/" title="有事就做事，没事叼根烟。">从良未遂</a></li>
+	<li><a href="http://timegone.net/" target="_blank" title="沉淀下来的旧时光">TimeGone</a></li>
+	<li><a href="http://www.zhicat.com/" title="猫主席Blog | 这里有只猫，沉默却坚定。">猫主席Blog</a></li>
+	<li><a href="http://www.laoxingblog.com" title="老邢的博客 资源分享 心情博客" target="_blank">老邢的博客</a></li>
+	<li><a href="http://www.bluesoul.name" title="筱梓的博客" target="_blank">青魂</a></li>
+	<li><a href="http://www.stylefanr.org/" title="风格范儿" target="_blank">风格范儿</a></li>
+	<li><a href="http://opengg.me/" title="opengg" target="_blank">鲁夫的爱</a></li>
+  </ul>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title">其他</h3>
+  <ul class="entry">
+	<li><a href="/rss.xml" target="_blank">Rss订阅</a></li>
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd96f32d61d27ee288ec8f8bd5c77b80f' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  &copy; 2013 likaci
+  
+  <a h>
+  &nbsp;&nbsp;<a href="/sitemap.xml">sitemap</a></li>
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'xiazhiri';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
